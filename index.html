@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALL STAGE — Your Needs | Our Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bk:#080808;--bk2:#101010;--bk3:#181818;--bk4:#202020;
+  --gd:#2c2c2c;--gm:#555;--g:#888;--gl:#aaa;--gp:#ccc;
+  --wh:#f0f0f0;--wh2:#e0e0e0;
+  --gold:#D4AF37;--gold2:#E5C158;--goldd:rgba(212,175,55,0.12);
+  --bd:rgba(255,255,255,0.07);--bdl:rgba(255,255,255,0.14);
+  --fd:'Bebas Neue',sans-serif;--fb:'DM Sans',sans-serif;--fi:'Playfair Display',serif;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--bk);color:var(--wh);font-family:var(--fb);font-weight:300;overflow-x:hidden;cursor:none}
+img{display:block;max-width:100%}
+::-webkit-scrollbar{width:2px}
+::-webkit-scrollbar-track{background:var(--bk)}
+::-webkit-scrollbar-thumb{background:var(--gold)}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:997;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E");opacity:.3}
+
+/* CURSOR */
+.cur{position:fixed;width:6px;height:6px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s;mix-blend-mode:normal}
+.cur-r{position:fixed;width:32px;height:32px;border:1px solid rgba(212,175,55,0.4);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s,opacity .3s}
+.cur.h{width:14px;height:14px}
+.cur-r.h{width:48px;height:48px;opacity:.3}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:900;padding:20px 56px;display:flex;align-items:center;justify-content:space-between;gap:24px;transition:background .5s,padding .4s,border-color .4s;border-bottom:1px solid transparent}
+nav.sc{background:rgba(8,8,8,0.97);backdrop-filter:blur(24px);padding:12px 56px;border-bottom-color:var(--bd)}
+.nav-logo{text-decoration:none;display:flex;align-items:center;gap:8px;flex-shrink:0}
+.nav-logo-img{height:80px;width:auto;object-fit:contain}
+.nav-logo-fallback{display:flex;flex-direction:column;line-height:1}
+.logo-all{font-family:var(--fd);font-size:26px;letter-spacing:4px;color:var(--wh);line-height:1}
+.logo-stage{font-size:8px;letter-spacing:4px;color:var(--gl);text-transform:uppercase;margin-top:2px}
+.logo-sep{width:1px;height:28px;background:rgba(255,255,255,0.1);margin:0 4px}
+.logo-dot{width:5px;height:5px;background:var(--gold);border-radius:50%;align-self:center;flex-shrink:0}
+.nav-search{position:relative;flex:1;max-width:300px}
+.nav-search input{width:100%;background:rgba(255,255,255,0.04);border:1px solid var(--bd);padding:9px 38px 9px 14px;color:var(--wh);font-family:var(--fb);font-size:12px;font-weight:300;outline:none;transition:background .3s,border .3s;border-radius:1px}
+.nav-search input::placeholder{color:var(--gm)}
+.nav-search input:focus{background:rgba(255,255,255,0.07);border-color:rgba(212,175,55,.35)}
+.nav-search button{position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:none;color:var(--gm);font-size:13px;line-height:1}
+.sdrop{position:absolute;top:calc(100%+6px);left:0;right:0;background:var(--bk3);border:1px solid var(--bd);display:none;z-index:999;max-height:240px;overflow-y:auto}
+.sdrop.open{display:block}
+.sd-item{padding:10px 14px;cursor:none;font-size:12px;transition:background .2s}
+.sd-item:hover{background:var(--goldd)}
+.sd-cat{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gm)}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none;flex-shrink:0}
+.nav-links a{color:var(--gl);text-decoration:none;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;font-weight:400;transition:color .2s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--gold);transition:width .3s}
+.nav-links a:hover{color:var(--gold)}
+.nav-links a:hover::after{width:100%}
+.btn-nav{background:var(--gold)!important;color:var(--bk)!important;padding:9px 20px;font-weight:500!important;letter-spacing:1.5px!important}
+.btn-nav::after{display:none!important}
+.btn-nav:hover{background:var(--gold2)!important;color:var(--bk)!important}
+
+/* HERO */
+#hero{position:relative;min-height:100vh;display:flex;align-items:center;padding-top:88px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 70% at 65% 35%,#1a1a14 0%,var(--bk) 70%)}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(212,175,55,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(212,175,55,.018) 1px,transparent 1px);background-size:72px 72px}
+.hero-diag{position:absolute;top:0;right:0;width:50%;height:100%;overflow:hidden;pointer-events:none}
+.hero-diag::before{content:'';position:absolute;top:-20%;right:-10%;width:200%;height:140%;background:repeating-linear-gradient(115deg,transparent,transparent 58px,rgba(212,175,55,.015) 58px,rgba(212,175,55,.015) 59px)}
+.hero-inner{position:relative;z-index:2;max-width:1380px;margin:0 auto;padding:0 56px;width:100%;display:grid;grid-template-columns:1fr 440px;gap:72px;align-items:center}
+.hero-sup{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.hero-sup-line{width:28px;height:1px;background:var(--gold)}
+.hero-sup-txt{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);opacity:.7}
+.hero-h1{font-family:var(--fd);font-size:clamp(60px,7.5vw,110px);line-height:.88;letter-spacing:1px;margin-bottom:16px}
+.hero-h1 em{font-family:var(--fi);font-style:italic;color:var(--gold);font-size:.7em;display:block;line-height:1.2}
+.hero-slogan{font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--gm);margin-bottom:20px;border-left:2px solid var(--gold);padding-left:14px}
+.hero-sub{font-size:15px;font-weight:300;color:var(--gl);line-height:1.75;max-width:500px;margin-bottom:40px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn-pri{background:var(--gold);color:var(--bk);border:none;padding:15px 36px;font-family:var(--fb);font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;cursor:none;transition:background .2s,transform .15s;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.btn-pri:hover{background:var(--gold2);transform:translateY(-2px)}
+.btn-sec{background:transparent;color:var(--wh);border:1px solid rgba(212,175,55,0.3);padding:15px 36px;font-family:var(--fb);font-size:12px;font-weight:400;letter-spacing:2px;text-transform:uppercase;cursor:none;transition:all .2s;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.btn-sec:hover{border-color:var(--gold);background:var(--goldd);color:var(--gold)}
+.hero-right{display:flex;flex-direction:column;gap:2px}
+.hero-stat{background:var(--bk2);border:1px solid var(--bd);padding:28px 32px;transition:border-color .3s}
+.hero-stat:hover{border-color:rgba(212,175,55,.3)}
+.hs-num{font-family:var(--fd);font-size:52px;line-height:1;letter-spacing:-1px;color:var(--gold)}
+.hs-lbl{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gm);margin-top:6px}
+.hs-sub{font-size:12px;color:var(--gl);margin-top:4px;font-weight:300}
+
+/* TICKER */
+.ticker{border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);overflow:hidden;padding:14px 0;background:var(--bk2);-webkit-mask-image:linear-gradient(to right,transparent 0%,black 12%,black 88%,transparent 100%);mask-image:linear-gradient(to right,transparent 0%,black 12%,black 88%,transparent 100%)}
+.ticker-track{display:flex;white-space:nowrap;animation:tick 32s linear infinite}
+.ticker-track span{font-family:var(--fd);font-size:13px;letter-spacing:3px;text-transform:uppercase;padding:0 40px;color:var(--gm)}
+.ticker-track span b{color:var(--gold)}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* PILARES */
+.pilares{background:var(--bk2);padding:0;border-bottom:1px solid var(--bd)}
+.pilares-inner{max-width:1380px;margin:0 auto;padding:88px 56px}
+.pilares-top{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:64px;gap:32px}
+.pilares-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px}
+.pilar{background:var(--bk);border:1px solid var(--bd);padding:40px 32px;position:relative;overflow:hidden;transition:border-color .3s,background .3s;cursor:none}
+.pilar:hover{border-color:rgba(212,175,55,.35);background:var(--bk3)}
+.pilar-num{font-family:var(--fd);font-size:64px;color:rgba(212,175,55,.04);position:absolute;top:16px;right:20px;line-height:1;pointer-events:none}
+.pilar-icon{font-size:28px;margin-bottom:20px;opacity:.8}
+.pilar-title{font-family:var(--fd);font-size:22px;letter-spacing:1px;margin-bottom:12px}
+.pilar-desc{font-size:13px;color:var(--gl);line-height:1.7;font-weight:300}
+.pilar-tag{display:inline-block;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);opacity:.6;margin-top:20px;border-top:1px solid var(--bd);padding-top:14px;width:100%}
+
+/* PRODUTOS */
+.produtos-wrap{max-width:1380px;margin:0 auto;padding:88px 56px}
+.sec-eyebrow{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;opacity:.8}
+.sec-title{font-family:var(--fd);font-size:clamp(34px,5vw,60px);letter-spacing:.5px;line-height:1}
+.sec-sub{font-size:15px;color:var(--gl);font-weight:300;line-height:1.65;max-width:460px}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:52px;gap:24px}
+.pf-wrap{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:44px}
+.pf-btn{background:transparent;border:1px solid var(--bd);color:var(--gl);padding:8px 18px;font-family:var(--fb);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;cursor:none;transition:all .2s}
+.pf-btn:hover,.pf-btn.act{background:var(--gold);color:var(--bk);border-color:var(--gold);font-weight:600}
+.pg{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2px}
+.pc{background:var(--bk2);border:1px solid var(--bd);display:flex;flex-direction:column;transition:transform .3s var(--ease),border-color .3s;position:relative}
+.pc-hot{position:absolute;top:10px;left:10px;z-index:3;background:var(--gold);color:var(--bk);font-size:10px;font-family:var(--fd);letter-spacing:1.5px;padding:4px 9px;font-weight:700}
+.pc:hover{transform:translateY(-5px);border-color:rgba(212,175,55,.3)}
+.pc-img{aspect-ratio:4/3;background:var(--bk3);overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center}
+.pc-img img{width:100%;height:100%;object-fit:contain;padding:14px;transition:transform .5s var(--ease)}
+.pc:hover .pc-img img{transform:scale(1.05)}
+.pc-img-icon{font-size:52px;opacity:.18}
+.pc-body{padding:22px;display:flex;flex-direction:column;flex:1}
+.pc-tag{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:7px;opacity:.7}
+.pc-name{font-family:var(--fd);font-size:18px;letter-spacing:.5px;margin-bottom:8px;line-height:1.1}
+.pc-specs{font-size:12px;color:var(--gl);line-height:1.65;margin-bottom:10px;flex:1;font-weight:300}
+.pc-kit{font-size:10px;color:var(--gm);background:rgba(255,255,255,.03);border:1px solid var(--bd);padding:4px 10px;display:inline-block;margin-bottom:12px}
+.pc-vars{margin-bottom:12px}
+.pc-vars-lbl{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gm);margin-bottom:6px}
+.pc-opts{display:flex;gap:5px;flex-wrap:wrap}
+.pc-opt{background:transparent;border:1px solid var(--bd);color:var(--gl);padding:4px 10px;font-size:11px;cursor:none;transition:all .2s}
+.pc-opt.sel,.pc-opt:hover{background:var(--gold);color:var(--bk);border-color:var(--gold);font-weight:600}
+.pc-swatch{width:18px;height:18px;border-radius:50%;cursor:none;border:2px solid transparent;transition:border-color .2s}
+.pc-swatch.sel{border-color:var(--gold)}
+.pc-qty{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.pc-qty-lbl{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gm)}
+.qb{background:var(--bk3);border:1px solid var(--bd);color:var(--wh);width:26px;height:26px;font-size:15px;cursor:none;transition:background .2s;display:flex;align-items:center;justify-content:center}
+.qb:hover{background:var(--gold);color:var(--bk);border-color:var(--gold)}
+.qv{font-family:var(--fd);font-size:18px;min-width:22px;text-align:center}
+.pc-add{background:var(--bk3);border:1px solid var(--bd);color:var(--gl);padding:11px 16px;font-family:var(--fb);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;cursor:none;transition:all .2s;width:100%;margin-top:auto}
+.pc-add:hover{background:var(--gold);color:var(--bk);border-color:var(--gold);font-weight:600}
+
+/* EVENTOS LIST */
+.eventos-wrap{background:var(--bk2);border-top:1px solid var(--bd);border-bottom:1px solid var(--bd)}
+.eventos-inner{max-width:1380px;margin:0 auto;padding:88px 56px}
+.ev-row{display:grid;grid-template-columns:72px 1fr auto;align-items:center;gap:32px;padding:28px 0;border-top:1px solid var(--bd);transition:background .2s;cursor:none}
+.ev-row:last-child{border-bottom:1px solid var(--bd)}
+.ev-row:hover{background:rgba(212,175,55,.025)}
+.ev-num{font-family:var(--fd);font-size:36px;color:rgba(212,175,55,.15);line-height:1;flex-shrink:0;text-align:right}
+.ev-cat{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);opacity:.6;margin-bottom:6px}
+.ev-name{font-family:var(--fd);font-size:28px;letter-spacing:.5px;line-height:1}
+.ev-badge{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);background:var(--goldd);border:1px solid rgba(212,175,55,.2);padding:6px 16px;flex-shrink:0;white-space:nowrap}
+
+/* GALERIA */
+.galeria-section{background:var(--bk);border-bottom:1px solid var(--bd)}
+.galeria-head{max-width:1380px;margin:0 auto;padding:88px 56px 48px}
+.galeria-grid{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:260px 260px;gap:2px}
+.gal-item{overflow:hidden;position:relative;background:var(--bk3)}
+.gal-item:first-child{grid-row:span 2}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease);display:block}
+.gal-item:hover img{transform:scale(1.05)}
+.gal-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.55) 0%,transparent 55%);opacity:0;transition:opacity .3s}
+.gal-item:hover .gal-overlay{opacity:1}
+.gal-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;color:var(--gd)}
+.gal-placeholder-icon{font-size:36px;opacity:.4}
+.gal-placeholder-txt{font-size:10px;letter-spacing:2px;text-transform:uppercase;opacity:.3}
+.galeria-cta{max-width:1380px;margin:0 auto;padding:32px 56px 56px;display:flex;justify-content:space-between;align-items:center}
+.galeria-note{font-size:12px;color:var(--gm);font-weight:300}
+
+/* QUEM SOMOS */
+.qs-wrap{max-width:1380px;margin:0 auto;padding:88px 56px}
+.qs-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.qs-p{font-size:16px;font-weight:300;color:var(--gl);line-height:1.85;margin-bottom:22px}
+.qs-p strong{color:var(--wh);font-weight:500}
+.qs-divider{width:40px;height:1px;background:var(--gold);margin:32px 0;opacity:.5}
+.qs-sign{font-family:var(--fi);font-style:italic;font-size:18px;color:var(--gl)}
+.qs-cards{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.qs-card{background:var(--bk2);border:1px solid var(--bd);padding:28px 24px;transition:border-color .3s}
+.qs-card:hover{border-color:rgba(212,175,55,.3)}
+.qs-card.wide{grid-column:span 2;display:flex;align-items:center;gap:32px}
+.qs-big{font-family:var(--fd);font-size:72px;line-height:1;color:var(--gold);opacity:.15}
+.qs-icon{font-size:24px;margin-bottom:14px;opacity:.7}
+.qs-card-title{font-family:var(--fd);font-size:20px;letter-spacing:.5px;margin-bottom:8px}
+.qs-card-desc{font-size:12px;color:var(--gl);line-height:1.65;font-weight:300}
+
+/* NOSSA HISTÓRIA */
+.historia-wrap{background:var(--bk);border-top:1px solid var(--bd);border-bottom:1px solid var(--bd)}
+.historia-inner{max-width:1380px;margin:0 auto;padding:88px 56px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.hv-item{background:var(--bk2);border:1px solid var(--bd);padding:28px 24px;margin-bottom:2px;transition:border-color .3s}
+.hv-item:hover{border-color:rgba(212,175,55,.3)}
+.hv-role{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);opacity:.6;margin-bottom:6px}
+.hv-name{font-family:var(--fd);font-size:22px;letter-spacing:.5px;margin-bottom:4px}
+.hv-desc{font-size:12px;color:var(--gl);font-weight:300;line-height:1.5}
+
+/* MARCAS */
+.marcas-wrap{background:var(--bk2);border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);padding:64px 56px}
+.marcas-inner{max-width:1380px;margin:0 auto}
+.marcas-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;margin-top:44px}
+.marca-card{background:var(--bk);border:1px solid var(--bd);padding:28px 20px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;transition:background .2s,border-color .3s;cursor:none;min-height:100px}
+.marca-card:hover{background:var(--bk3);border-color:rgba(212,175,55,.25)}
+.marca-logo{height:40px;width:auto;max-width:120px;object-fit:contain;filter:brightness(0) invert(1);opacity:.45;transition:opacity .3s}
+.marca-card:hover .marca-logo{opacity:.85}
+.marca-tag{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gd);transition:color .2s}
+.marca-card:hover .marca-tag{color:var(--gold);opacity:.5}
+
+/* CLIENTES */
+.clientes-wrap{max-width:1380px;margin:0 auto;padding:88px 56px}
+.clientes-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:2px;margin-top:52px}
+.cliente-card{border:1px solid var(--bd);padding:28px 16px;display:flex;align-items:center;justify-content:center;background:var(--bk2);transition:background .2s,border-color .3s;cursor:none;text-decoration:none;min-height:165px}
+.cliente-card:hover{background:var(--bk3);border-color:rgba(212,175,55,.25)}
+.cliente-logo{height:143px;max-width:200px;object-fit:contain;filter:brightness(0) invert(1);opacity:.4;transition:opacity .3s;display:block}
+.cliente-card:hover .cliente-logo{opacity:.85}
+
+/* CONTATO */
+.ct-wrap{background:var(--bk2);border-top:1px solid var(--bd)}
+.ct-inner{max-width:1380px;margin:0 auto;padding:88px 56px;display:grid;grid-template-columns:1fr 1fr;gap:80px}
+.ct-info-item{display:flex;gap:18px;align-items:flex-start;margin-bottom:28px;padding-bottom:28px;border-bottom:1px solid var(--bd)}
+.ct-info-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.ct-ic{width:42px;height:42px;background:var(--bk3);border:1px solid var(--bd);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.ct-lbl{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);opacity:.6;margin-bottom:4px}
+.ct-val{font-size:15px;color:var(--wh);font-weight:400}
+.ct-val a{color:var(--wh);text-decoration:none;transition:color .2s}
+.ct-val a:hover{color:var(--gold)}
+.ct-sub{font-size:12px;color:var(--gl);margin-top:3px;font-weight:300}
+.ct-download{display:inline-flex;align-items:center;gap:8px;background:var(--bk3);border:1px solid rgba(212,175,55,.25);color:var(--gold);padding:10px 18px;font-family:var(--fb);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;cursor:none;transition:all .2s;margin-top:12px}
+.ct-download:hover{background:var(--gold);color:var(--bk);border-color:var(--gold)}
+.ct-form{display:flex;flex-direction:column;gap:14px}
+.cf-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.cf-field label{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gm);display:block;margin-bottom:6px}
+.cf-field input,.cf-field textarea,.cf-field select{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--bd);padding:12px 14px;color:var(--wh);font-family:var(--fb);font-size:13px;font-weight:300;outline:none;transition:border .3s,background .3s;-webkit-appearance:none;border-radius:0}
+.cf-field input:focus,.cf-field textarea:focus,.cf-field select:focus{border-color:rgba(212,175,55,.4);background:rgba(212,175,55,.03)}
+.cf-field textarea{resize:vertical;min-height:110px}
+.cf-field select option{background:var(--bk3);color:var(--wh)}
+.cf-submit{background:var(--gold);color:var(--bk);border:none;padding:15px 40px;font-family:var(--fb);font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;cursor:none;transition:background .2s;width:100%;margin-top:6px}
+.cf-submit:hover{background:var(--gold2)}
+
+/* FOOTER */
+footer{background:var(--bk);border-top:1px solid var(--bd);padding:56px 56px 28px}
+.ft-inner{max-width:1380px;margin:0 auto}
+.ft-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:56px;margin-bottom:52px}
+.ft-logo-img{height:68px;width:auto;object-fit:contain;margin-bottom:12px;opacity:.7}
+.ft-brand-desc{font-size:13px;color:var(--gm);margin-top:8px;line-height:1.65;max-width:210px}
+.ft-col-title{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);opacity:.5;margin-bottom:18px}
+.ft-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ft-links a{color:var(--gl);text-decoration:none;font-size:13px;transition:color .2s}
+.ft-links a:hover{color:var(--gold)}
+.ft-social{display:flex;gap:8px;margin-top:20px}
+.ft-soc{width:36px;height:36px;background:var(--bk3);border:1px solid var(--bd);display:flex;align-items:center;justify-content:center;font-size:15px;cursor:none;transition:all .2s;text-decoration:none;color:var(--gl)}
+.ft-soc:hover{background:var(--gold);color:var(--bk);border-color:var(--gold)}
+.ft-bottom{border-top:1px solid var(--bd);padding-top:24px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.ft-copy{font-size:11px;color:var(--gm)}
+.ft-copy span{color:var(--gold);opacity:.5}
+
+/* FLOATING BUDGET */
+.fb-wrap{position:fixed;bottom:28px;right:28px;z-index:800}
+.fb-panel{position:absolute;bottom:70px;right:0;width:320px;background:var(--bk2);border:1px solid rgba(212,175,55,.2);display:none;flex-direction:column;max-height:480px;box-shadow:0 20px 60px rgba(0,0,0,.8)}
+.fb-panel.open{display:flex}
+.fb-head{padding:18px 22px;border-bottom:1px solid var(--bd);display:flex;justify-content:space-between;align-items:center}
+.fb-title{font-family:var(--fd);font-size:16px;letter-spacing:1px;color:var(--gold)}
+.fb-x{background:none;border:none;color:var(--gm);font-size:18px;cursor:none;line-height:1}
+.fb-x:hover{color:var(--wh)}
+.fb-list{flex:1;overflow-y:auto;padding:14px 22px}
+.fb-empty{text-align:center;padding:28px 0;color:var(--gm);font-size:12px}
+.fb-item{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--bd);font-size:12px}
+.fb-item:last-child{border-bottom:none}
+.fb-item-name{flex:1;color:var(--gl)}
+.fb-item-qty{font-family:var(--fd);font-size:17px;color:var(--gold)}
+.fb-item-del{background:none;border:none;color:var(--gm);cursor:none;font-size:15px;line-height:1}
+.fb-item-del:hover{color:var(--wh)}
+.fb-foot{padding:18px 22px;border-top:1px solid var(--bd);display:flex;flex-direction:column;gap:8px}
+.fb-send{background:var(--gold);color:var(--bk);border:none;padding:12px;font-family:var(--fb);font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;cursor:none;transition:background .2s;display:flex;align-items:center;justify-content:center;gap:8px}
+.fb-send:hover{background:var(--gold2)}
+.fb-clear{background:transparent;color:var(--gm);border:1px solid var(--bd);padding:9px;font-family:var(--fb);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;cursor:none;transition:all .2s}
+.fb-clear:hover{color:var(--gl);border-color:var(--bdl)}
+.fb-btn{background:var(--gold);color:var(--bk);width:54px;height:54px;border-radius:50%;border:none;font-size:20px;cursor:none;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 28px rgba(212,175,55,.3);transition:transform .2s,box-shadow .2s;position:relative}
+.fb-btn:hover{transform:scale(1.08);box-shadow:0 12px 36px rgba(212,175,55,.4)}
+.fb-badge{position:absolute;top:-4px;right:-4px;background:var(--bk);color:var(--gold);border:1px solid var(--gold);width:18px;height:18px;border-radius:50%;font-size:10px;font-weight:600;display:none;align-items:center;justify-content:center}
+
+/* REVEAL */
+.rev{opacity:0;transform:translateY(20px);transition:opacity .75s var(--ease),transform .75s var(--ease)}
+.rev.in{opacity:1;transform:translateY(0)}
+.rev-d1{transition-delay:.08s}
+.rev-d2{transition-delay:.16s}
+.rev-d3{transition-delay:.24s}
+.rev-d4{transition-delay:.32s}
+
+/* RESPONSIVE */
+@media(max-width:1100px){
+  nav,footer{padding-left:32px;padding-right:32px}
+  nav.sc{padding-left:32px;padding-right:32px}
+  .hero-inner,.qs-grid,.ct-inner,.historia-inner{grid-template-columns:1fr;gap:48px}
+  .pilares-grid{grid-template-columns:1fr 1fr}
+  .ft-top{grid-template-columns:1fr 1fr;gap:40px}
+  .marcas-grid{grid-template-columns:repeat(4,1fr)}
+  .produtos-wrap,.pilares-inner,.eventos-inner,.qs-wrap,.ct-inner,.clientes-wrap,.marcas-wrap,.ct-wrap .ct-inner,.historia-inner,.galeria-head,.galeria-cta{padding-left:32px;padding-right:32px}
+  .clientes-grid{grid-template-columns:repeat(4,1fr)}
+}
+@media(max-width:768px){
+  nav{padding:12px 20px}
+  nav.sc{padding:10px 20px}
+  .nav-search{display:none}
+  .nav-links li:not(:last-child){display:none}
+  .hero-inner{padding:0 20px}
+  .hero-right{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px}
+  .pilares-grid{grid-template-columns:1fr}
+  .qs-cards{grid-template-columns:1fr}
+  .qs-card.wide{grid-column:1}
+  .ft-top{grid-template-columns:1fr;gap:28px}
+  .ft-bottom{flex-direction:column;text-align:center}
+  .cf-row{grid-template-columns:1fr}
+  .pg{grid-template-columns:1fr}
+  .galeria-grid{grid-template-columns:1fr 1fr;grid-template-rows:200px 200px 200px}
+  .gal-item:first-child{grid-row:span 1;grid-column:span 2}
+  .clientes-grid{grid-template-columns:repeat(3,1fr)}
+  .marcas-grid{grid-template-columns:repeat(3,1fr)}
+  .produtos-wrap,.pilares-inner,.eventos-inner,.qs-wrap,.clientes-wrap,.historia-inner,.galeria-head,.galeria-cta{padding:56px 20px}
+  .ct-wrap .ct-inner{padding:56px 20px}
+  .marcas-wrap{padding:56px 20px}
+  footer{padding:40px 20px 20px}
+}
+</style>
+</head>
+<body>
+<div class="cur" id="cur"></div>
+<div class="cur-r" id="curR"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">
+    <img src="logo-allstage-1.png" class="nav-logo-img" alt="ALL STAGE" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="nav-logo-fallback" style="display:none">
+      <span class="logo-all">ALL STAGE</span>
+      <span class="logo-stage">Soluções em equipamentos para quem faz acontecer</span>
+    </div>
+    <div class="logo-dot"></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#quem-somos">Quem Somos</a></li>
+    <li><a href="#produtos">Produtos</a></li>
+    <li><a href="#eventos">Eventos</a></li>
+    <li><a href="#contato" class="btn-nav">Orçamento</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-diag"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-sup rev">
+        <div class="hero-sup-line"></div>
+        <span class="hero-sup-txt">Soluções completas para backstage</span>
+      </div>
+      <h1 class="hero-h1 rev rev-d1">YOUR<br>NEEDS<br><em>OUR SOLUTIONS</em></h1>
+      <p class="hero-slogan rev rev-d2">ALL STAGE · Infraestrutura · TI · Tecnologia · Técnica</p>
+      <p class="hero-sub rev rev-d2">Tudo que você precisa para o seu backstage — do intercom ao painel de LED, do notebook ao gerador. Atendemos o Brasil inteiro.</p>
+      <div class="hero-btns rev rev-d3">
+        <a href="#produtos" class="btn-pri">Ver Catálogo</a>
+        <a href="https://wa.me/5511961807234" target="_blank" class="btn-sec">💬 Fale Conosco</a>
+      </div>
+    </div>
+    <div class="hero-right rev rev-d2">
+      <div class="hero-stat">
+        <div class="hs-num" data-count="10">0</div>
+        <div class="hs-lbl">Anos de Mercado</div>
+        <div class="hs-sub">No backstage dos maiores eventos</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hs-num" data-count="500">0</div>
+        <div class="hs-lbl">Eventos Realizados</div>
+        <div class="hs-sub">De shows a convenções corporativas</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hs-num" data-count="100">0</div>
+        <div class="hs-lbl">% Brasil</div>
+        <div class="hs-sub">Atendimento em todo o território nacional</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span><b>Áudio</b> &amp; Intercom</span><span><b>Estrutura</b> &amp; Palco</span><span><b>Vídeo</b> &amp; LED</span><span><b>TI</b> &amp; Internet</span><span><b>Elétrica</b> &amp; Energia</span><span><b>Backstage</b> Completo</span><span>Atendemos <b>o Brasil inteiro</b></span>
+    <span><b>Áudio</b> &amp; Intercom</span><span><b>Estrutura</b> &amp; Palco</span><span><b>Vídeo</b> &amp; LED</span><span><b>TI</b> &amp; Internet</span><span><b>Elétrica</b> &amp; Energia</span><span><b>Backstage</b> Completo</span><span>Atendemos <b>o Brasil inteiro</b></span>
+  </div>
+</div>
+
+<!-- MANIFESTO -->
+<div style="background:var(--bk);border-bottom:1px solid var(--bd);padding:72px 56px">
+  <div style="max-width:860px;margin:0 auto;text-align:center" class="rev">
+    <div class="sec-eyebrow" style="text-align:center;margin-bottom:24px">Manifesto</div>
+    <blockquote style="font-family:var(--fi);font-style:italic;font-size:clamp(18px,2.2vw,26px);color:var(--gl);line-height:1.7;font-weight:300;margin-bottom:28px">"Mais do que alugar periféricos técnicos, o que garante o sucesso do seu evento é o planejamento inteligente. Quando o projeto é feito sem integração, o resultado é retrabalho e prejuízo. Com a ALL STAGE, você tem previsibilidade total de prazos, soluções completas e a tranquilidade que o seu backstage precisa."</blockquote>
+    <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);opacity:.5">ALL STAGE · Soluções em equipamentos para quem faz acontecer</div>
+  </div>
+</div>
+
+<!-- QUEM SOMOS -->
+<div id="quem-somos" style="background:var(--bk2);border-bottom:1px solid var(--bd)">
+  <div class="qs-wrap">
+    <div class="qs-grid">
+      <div class="rev">
+        <div class="sec-eyebrow">Quem Somos</div>
+        <div class="sec-title" style="margin-bottom:32px">SOMOS<br>ALL STAGE</div>
+        <p class="qs-p">A <strong>ALL STAGE</strong> nasceu da paixão pelo ramo de eventos. Estruturada a quatro mãos por dois profissionais com longa jornada no mercado.</p>
+        <p class="qs-p"><strong>Vivi</strong> comanda os bastidores organizacionais — gestão operacional, processos e controle de qualidade. <strong>Moranga</strong> lidera a frente comercial, prospecção e o direcionamento da marca.</p>
+        <p class="qs-p">Com <strong>10 anos de experiência</strong> no backstage dos maiores eventos do Brasil, atendemos todos os formatos e portes — em <strong>todo o território nacional</strong>.</p>
+        <div class="qs-divider"></div>
+        <div class="qs-sign">Moranga &amp; Vivi — Fundadores ALL STAGE</div>
+      </div>
+      <div class="qs-cards rev rev-d2">
+        <div class="qs-card wide">
+          <div class="qs-big">10</div>
+          <div>
+            <div class="qs-card-title">Anos de Mercado</div>
+            <div class="qs-card-desc">Uma década de experiência no backstage de eventos de todos os portes.</div>
+          </div>
+        </div>
+        <div class="qs-card">
+          <div class="qs-icon">🎯</div>
+          <div class="qs-card-title">Qualidade</div>
+          <div class="qs-card-desc">Equipamentos de última geração das melhores marcas mundiais.</div>
+        </div>
+        <div class="qs-card">
+          <div class="qs-icon">⚡</div>
+          <div class="qs-card-title">Agilidade</div>
+          <div class="qs-card-desc">Entrega e montagem no prazo, com equipe técnica no local.</div>
+        </div>
+        <div class="qs-card">
+          <div class="qs-icon">🌎</div>
+          <div class="qs-card-title">Brasil Inteiro</div>
+          <div class="qs-card-desc">Atendemos todo o território nacional, 24/7.</div>
+        </div>
+        <div class="qs-card">
+          <div class="qs-icon">🤝</div>
+          <div class="qs-card-title">Parceria</div>
+          <div class="qs-card-desc">Relações duradouras com produtoras, venues e marcas nacionais.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- O QUE FAZEMOS -->
+<div class="pilares">
+  <div class="pilares-inner">
+    <div class="pilares-top rev">
+      <div>
+        <div class="sec-eyebrow">O Que Fazemos</div>
+        <div class="sec-title">SOLUÇÕES<br>PARA EVENTOS</div>
+      </div>
+      <p class="sec-sub">Quatro pilares que sustentam qualquer evento — do pequeno ao grande porte, da convenção ao festival.</p>
+    </div>
+    <div class="pilares-grid">
+      <div class="pilar rev"><div class="pilar-num">01</div><div class="pilar-icon">🎧</div><div class="pilar-title">Intercom</div><div class="pilar-desc">Sistemas wireless Hollyland com intercomunicação full-duplex sem latência para equipes de produção e backstage. Linha robusta: Solidcom SE, Solidcom C1, Solidcom C1 Pro e Solidcom M1.</div><div class="pilar-tag">Hollyland · JBL</div></div>
+      <div class="pilar rev rev-d1"><div class="pilar-num">02</div><div class="pilar-icon">📺</div><div class="pilar-title">Vídeo</div><div class="pilar-desc">TVs Samsung Neo QLED e Crystal UHD. Visualização de alto impacto para palcos, feiras e ativações.</div><div class="pilar-tag">Samsung · TV Box MXQ PRO · Suporte Pedestal</div></div>
+      <div class="pilar rev rev-d2"><div class="pilar-num">03</div><div class="pilar-icon">💻</div><div class="pilar-title">TI &amp; Conectividade</div><div class="pilar-desc">Notebooks Dell, internet via Starlink, apresentadores Logitech e monitores 4K. Infraestrutura completa para produção e transmissão.</div><div class="pilar-tag">Dell · Starlink · Logitech</div></div>
+      <div class="pilar rev rev-d3"><div class="pilar-num">04</div><div class="pilar-icon">⚡</div><div class="pilar-title">Energia &amp; Estrutura</div><div class="pilar-desc">Bluetti LiFePO4 e geradores silenciosos para proteger e estabilizar toda a infraestrutura técnica. Totem carregador coletivo, mesa bistro carregadora e mesa de canto — 2 USB + 2 tomadas · 4 aparelhos simultâneos · ativação de experiência para o público.</div><div class="pilar-tag">Bluetti · Britânia</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUTOS -->
+<div id="produtos">
+  <div class="produtos-wrap">
+    <div class="sec-head rev">
+      <div>
+        <div class="sec-eyebrow">Catálogo Completo</div>
+        <div class="sec-title">EQUIPAMENTOS<br>PARA LOCAÇÃO</div>
+      </div>
+      <p class="sec-sub">Equipamentos de última geração das melhores marcas. Qualidade e confiabilidade para qualquer evento.</p>
+    </div>
+    <div class="pf-wrap rev">
+      <button class="pf-btn act" onclick="filterProd('all',this)">Todos</button>
+      <button class="pf-btn" onclick="filterProd('audio',this)">Áudio / Intercom</button>
+      <button class="pf-btn" onclick="filterProd('estrutura',this)">Estrutura / Palco</button>
+      <button class="pf-btn" onclick="filterProd('video',this)">Vídeo / Telas</button>
+      <button class="pf-btn" onclick="filterProd('info',this)">TI / Informática</button>
+      <button class="pf-btn" onclick="filterProd('eletrica',this)">Elétrica / Energia</button>
+      <button class="pf-btn" onclick="filterProd('acess',this)">Acessórios</button>
+    </div>
+    <div class="pg" id="pg">
+
+      <!-- ÁUDIO -->
+      <div class="pc rev" data-cat="audio">
+        <span class="pc-hot">★ Mais Alugado</span>
+        <div class="pc-img"><img src="imgs-produtos/solidcom-c1.png" alt="Hollyland Solidcom C1"></div>
+        <div class="pc-body">
+          <span class="pc-tag">Áudio / Intercom</span>
+          <h3 class="pc-name">Hollyland Solidcom C1</h3>
+          <p class="pc-specs">8 belts · Alcance 400m · 16 baterias / 5h · DECT 1.9GHz · Full-duplex sem hub · Essencial para coordenação geral em eventos de médio porte</p>
+          <span class="pc-kit">Kit 8 Headsets</span>
+          <div class="pc-qty"><span class="pc-qty-lbl">Qtd</span><button class="qb" onclick="chQty(this,-1)">−</button><span class="qv">1</span><button class="qb" onclick="chQty(this,1)">+</button></div>
+          <button class="pc-add" onclick="addItem(this,'Hollyland Solidcom C1','Áudio / Intercom')">+ Adicionar ao Orçamento</button>
+        </div>
+      </div>
+
+      <div class="pc rev rev-d1" data-cat="audio">
+        <span class="pc-hot">★ Mais Alugado</span>
+        <div class="pc-img"><img src="imgs-produtos/solidcom-c1-pro.png" alt="Hollyland Solidcom C1 Pro"></div>
+        <div class="pc-body">
+          <span class="pc-tag">Áudio / Intercom</span>
+          <h3 class="pc-name">Hollyland Solidcom C1 PRO</h3>
+          <p class="pc-specs">9 belts (Hub + 8) · Alcance 400m · 16 baterias / 5h · ENC duplo · Canais A/B independentes · Indispensável em shows e festivais</p>
+          <span class="pc-kit">Hub + 8 Headsets</span>
+          <div class="pc-qty"><span class="pc-qty-lbl">Qtd</span><button class="qb" onclick="chQty(this,-1)">−</button><span class="qv">1</span><button class="qb" onclick="chQty(this,1)">+</button></div>
+          <button class="pc-add" onclick="addItem(this,'Hollyland Solidcom C1 PRO','Áudio / Intercom')">+ Adicionar ao Orçamento</button>
+        </div>
+      </div>
+
+      <div class="pc rev rev-d2" data-cat="audio">
+        <div class="pc-img"><img src="imgs-produtos/jbl-headphone.png" alt="JBL Everest JB950"></div>
+        <div class="pc-body">
+          <span class="pc-tag">Áudio / Intercom</span>
+          <h3 class="pc-name">Headphone JBL Everest JB950</h3>
+          <p class="pc-specs">Bluetooth · FM Radio + MP3 · Cor Preto · Monitoramento de áudio com precisão para técnicos de som e transmissão</p>
+          <div class="pc-qty"><span class="pc-qty-lbl">Qtd</span><button class="qb" onclick="chQty(this,-1)">−</button><span class="qv">1</span><button class="qb" onclick="chQty(this,1)">+</button></div>
+          <button class="pc-add" onclick="addItem(this,'Headphone JBL Everest JB950','Áudio / Intercom')">+ Adicionar ao Orçamento</button>
+        </div>
+      </div>
+
+      <!-- ESTRUTURA -->
+      <div class="pc rev" data-cat="estrutura">
+        <div class="pc-img"><img src="imgs-produtos/praticavel.png" alt="Praticável para Palco"></div>
+        <div class="pc-body">
+          <span class="pc-tag">Estrutura / Palco</span>
+          <h3 class="pc-name">Praticável 2x1m</h3>
+          <p class="pc-specs">2x1m · Altura 0,6–1,0m · Rodízio 0,20cm · Garante palco 100% nivelado mesmo em pisos irregulares</p>
+          <div class="pc-vars"><div class="pc-vars-lbl">Tipo</div><div class="pc-opts"><button class="pc-opt sel" onclick="selOpt(this)">Pés Fixos</button><button class="pc-opt" onclick="selOpt(this)">Telescópico</button><button class="pc-opt" onclick="selOpt(this)">Com Rodinha</button></div></div>
+          <div class="pc-qty"><span class="pc-qty-lbl">Qtd</span><button class="qb" onclick="chQty(this,-1)">−</button><span class="qv">1</span><button class="qb" onclick="chQty(this,1)">+</button></div>
+          <button class="pc-add" onclick="addItem(this,'Praticável 2x1m','Estrutura / Palco')">+ Adicionar ao Orçamento</button>
+        </div>
+      </div>
+
+      <div class="pc rev rev-d1" data-cat="estrutura">
+        <span class="pc-hot">★ Mais Alugado</span>
+        <div class="pc-img"><img src="imgs-produtos/mesa.png" alt="Mesa Pranchão Preta"></div>
+        <div class="pc-body">
+          <span class="pc-tag">Estrutura / Palco</span>
+          <h3 class="pc-name">Mesa Desmontável Pranchão Preta</h3>
+          <p class="pc-specs">74,3 × 184 × 74,2 cm · Peso 11,33kg · Carga 130kg · Acabamento preto · Régie técnica e balcão de credenciamento</p>
+          <div class="pc-qty"><span class="pc-qty-lbl">Qtd</span><button class="qb" onclick="chQty(this,-1)">−</button><span class="qv">1</span><button class="qb" onclick="chQty(this,1)">+</button></div>
+          <button class="pc-add" onclick="addItem(this,'Mesa Desmontável Pranchão Preta','Estrutura / Palco')">+ Adicionar ao Orçamento</button>
+        </div>
+      </div>
+
+      <div class="pc rev rev-d2" data-cat="estrutura">
+        <span class="pc-hot">★ Mais Alugado</span>
+        <div class="pc-img"><img src="imgs-produtos/mesa.png" alt="Mesa Pranchão Branca"></div>
+        <div class="pc-body">
+          <span class="pc-tag">Estrutura / Palco</span>
+          <h3 class="pc-name">Mesa Desmontável Pranchão Branca</h3>
+          <p class="pc-specs">74,3 × 184 × 74,2 cm · Peso 11,33kg · Carga 130kg · Acabamento branco · Ideal para áreas VIP, buffet e recepção</p>
+          <div class="pc-qty"><span class="pc-qty-lbl">Qtd</span><button class="qb" onclick="chQty(this,-1)">−</button><span class="qv">1</span><button class="qb" onclick="chQty(this,1)">+</button></div>
+          <button class="pc-add" onclick="addItem(this,'Mesa Desmontável Pranchão Branca','Estrutura / Palco')">+ Adicionar ao Orçamento</button>
+        </div>
+      </div>
+
+      <!-- VÍDEO -->
+      <div class="pc rev" data-cat="video">
+        <div class="pc-img"><img src="imgs-produtos/samsung-tv.jpg" alt="Samsung Smart TV 32″"></div>
+        <div class="pc-body">
+          <span class="pc-tag">Vídeo / Telas</span>
+          <h3 class="pc-name">Samsung Smart TV 32″</h3>
+          <p class="pc-specs">HD Smart · Crystal Display · Ideal para backstage, camarim e monitoramento técnico em espaços reduzidos</p>
+          <div class="pc-qty"><span class="pc-qty-lbl">Qtd</span><button class="qb" onclick="chQty(this,-1)">−</button><span class="qv">1</span><button class="qb" onclick="chQty(this,1)">+</button></div>
+          <button class="pc-add" onclick="addItem(this,'Samsung Smart TV 32″','Vídeo / Telas')">+ Adicionar ao Orçamento</button>
+        </div>
+      </div>
+
+      <div class="pc rev rev-d1" data-cat="video">
+        <div class="pc-img"><img src="imgs-produtos/samsung-tv.jpg" alt="Samsung Smart TV 43″"></div>
+        <div class="pc-body">
+          <span class="pc-tag">Vídeo / Telas</span>
+          <h3 class="pc-name">Samsung Smart TV 43″</h3>
+          <p class="pc-specs">UHD 4K Smart · Crystal UHD · Retorno de palco, monitor de régie e exibição em stands e credenciamentos</p>
+          <div class="pc-qty"><span class="pc-qty-lbl">Qtd</span><button class="qb" onclick="chQty(this,-1)">−</button><span class="qv">1</span><button class="qb" onclick="chQty(this,1)">+</button></div>
+          <button class="pc-add" onclick="addItem(this,'Samsung Smart TV 43″','Vídeo / Telas')">+ Adicionar ao Orçamento</button>
+        </div>
+      </div>
+
+      <div class="pc rev rev-d2" data-cat="video">
+        <span class="pc-hot">★ Mais Alugado</span>
+        <div class="pc-img"><img src="imgs-produtos/samsung-tv.jpg" alt="Samsung Smart TV 55″"></div>
+        <div class="pc-body">
+          <span class="pc-tag">Vídeo / Telas</span>
+          <h3 class="pc-name">Samsung Smart TV 55″</h3>
+          <p class="pc-specs">UHD 4K Smart · NEO QLED · O tamanho mais requisitado para eventos — stands, salas de reunião e exibição lateral de palco</p>
+          <div class="pc-qty"><span class="pc-qty-lbl">Qtd</span><button class="qb" onclick="chQty(this,-1)">−</button><span class="qv">1</span><button class="qb" onclick="chQty(this,1)">+</button></div>
+          <button class="pc-add" onclick="addItem(this,'Samsung Smart TV 55″','Vídeo / Telas')">+ Adicionar ao Orçamento</button>
+        </div>
+      </div>
+
+      <div class="pc rev rev-d3" data-cat="video">
+        <div class="pc-img"><img src="imgs-produtos/samsung-tv.jpg" alt="Samsung Smart TV 65″"></div>
+        <div class="pc-body">
+          <span class="pc-tag">Vídeo / Telas</span>
+          <h3 class="pc-name">Samsung Smart TV 65″</h3>
+          <p class="pc-specs">UHD 4K Smart · NEO QLED · Alta visibilidade em plenárias, salas VIP e palcos de convenções corporativas</p>
+          <div class="pc-qty"><span class="pc-qty-lbl">Qtd</span><button class="qb" onclick="chQty(this,-1)">−</button><span class="qv">1</span><button class="qb" onclick="chQty(this,1)">+</button></div>
+          <button class="pc-add" onclick="addItem(this,'Samsung Smart TV 65″','Vídeo / Telas')">+ Adicionar ao Orçamento</button>
+        </div>
+      </div>
+
+      <div class="pc rev" data-cat="video">
+        <div class="pc-img"><img src="imgs-produtos/samsung-tv.jpg" alt="Samsung Smart TV 75″"></div>
+        <div class="pc-body">
+          <span class="pc-tag">Vídeo / Telas</span>
+          <h3 class="pc-name">Samsung Smart TV 75″</h3>
+          <p class="pc-specs">UHD 4K Smart · NEO QLED · Impacto visual máximo em grandes plenárias, feiras e eventos com mais de 500 pessoas</p>
+          <div class="pc-qty"><span class="pc-qty-lbl">Qtd</span><button class="qb" onclick="chQty(this,-1)">−</button><span class="qv">1</span><button class="qb" onclick="chQty(this,1)">+</button></div>
+          <button class="pc-add" onclick="addItem(this,'Samsung Smart TV 75″','Vídeo / Telas')">+ Adicionar ao Orçamento</button>
+        </div>
+      </div>
+
+      <div class="pc rev rev-d1" data-cat="video">
+        <div class="pc-img"><img src="imgs-produtos/samsung-tv.jpg" alt="Samsung Smart TV 85″"></div>
+        <div class="pc-body">
+          <span class="pc-tag">Vídeo / Telas</span>
+          <h3 class="pc-name">Samsung Smart TV 85″</h3>
+          <p class="pc-specs">UHD 4K Smart · NEO QLED · Formato gigante para feiras de grande porte, lobbies e palcos com visibilidade total da plateia</p>
+          <div class="pc-qty"><span class="pc-qty-lbl">Qtd</span><button class="qb" onclick="chQty(this,-1)">−</button><span class="qv">1</span><button class="qb" onclick="chQty(this,1)">+</button></div>
+          <button class="pc-add" onclick="addItem(this,'Samsung Smart TV 85″','Vídeo / Telas')">+ Adicionar ao Orçamento</button>
+        </div>
+      </div>
+
+      <div class="pc rev rev-d1" data-cat="video">
+        <div class="pc-img"><img src="imgs-produtos/suporte-tv.png" alt="Suporte Pedestal TV"></div>
+        <div class="pc-body">
+          <span class="pc-tag">Vídeo / Telas</span>
+          <h3 class="pc-name">Suporte Pedestal TV</h3>
+          <p class="pc-specs">Carga máx 35kg · TVs 32"–55" · Material aço carbono · Tripé ajustável · Posiciona monitores na altura exata dos olhos</p>
+          <div class="pc-qty"><span class="pc-qty-lbl">Qtd</span><button class="qb" onclick="chQty(this,-1)">−</button><span class="qv">1</span><button class="qb" onclick="chQty(this,1)">+</button></div>
+          <button class="pc-add" onclick="addItem(this,'Suporte Pedestal TV','Vídeo / Telas')">+ Adicionar ao Orçamento</button>
+        </div>
+      </div>
+
+      <div class="pc rev rev-d2" data-cat="video">
+        <div class="pc-img"><img src="imgs-produtos/tv-box.png" alt="TV Box MXQ PRO"></div>
+        <div class="pc-body">
+          <span class="pc-tag">Vídeo / Telas</span>
+          <h3 class="pc-name">TV Box MXQ PRO</h3>
+          <p class="pc-specs">Android 12.1 · Wi-Fi 2,4G / 5G · 512GB · 4GB RAM · Roda vídeos institucionais em loop automaticamente</p>
+          <div class="pc-qty"><span class="pc-qty-lbl">Qtd</span><button class="qb" onclick="chQty(this,-1)">−</button><span class="qv">1</span><button class="qb" onclick="chQty(this,1)">+</button></div>
+          <button class="pc-add" onclick="addItem(this,'TV Box MXQ PRO','Vídeo / Telas')">+ Adicionar ao Orçamento</button>
+        </div>
+      </div>
+
+      <!-- TI -->
+      <div class="pc rev" data-cat="info">
+        <div class="pc-img"><img src="imgs-produtos/notebook-dell.png" alt="Dell G15 5530 RTX 3050"></div>
+        <div class="pc-body">
+          <span class="pc-tag">TI / Informática</span>
+          <h3 class="pc-name">Notebook Dell G15 5530 · RTX 3050</h3>
+          <p class="pc-specs">Intel Core i7 13ª Geração · RTX 3050 · 15,6" Full HD · 16GB RAM · 512GB SSD · Ideal para apresentações, slides pesados e streaming</p>
+          <div class="pc-qty"><span class="pc-qty-lbl">Qtd</span><button class="qb" onclick="chQty(this,-1)">−</button><span class="qv">1</span><button class="qb" onclick="chQty(this,1)">+</button></div>
+          <button class="pc-add" onclick="addItem(this,'Notebook Dell G15 5530 RTX 3050','TI / Informática')">+ Adicionar ao Orçamento</button>
+        </div>
+      </div>
+
+      <div class="pc rev rev-d1" data-cat="info">
+        <span class="pc-hot">Performance</span>
+        <div class="pc-img"><img src="imgs-produtos/notebook-dell.png" alt="Dell G15 5530 RTX 3070"></div>
+        <div class="pc-body">
+          <span class="pc-tag">TI / Informática</span>
+          <h3 class="pc-name">Notebook Dell G15 5530 · RTX 3070</h3>
+          <p class="pc-specs">Intel Core i7 13ª Geração · RTX 3070 · 15,6" Full HD · 16GB RAM · 512GB SSD · Alta performance para vídeos 4K, transmissões ao vivo e VT em loop</p>
+          <div class="pc-qty"><span class="pc-qty-lbl">Qtd</span><button class="qb" onclick="chQty(this,-1)">−</button><span class="qv">1</span><button class="qb" onclick="chQty(this,1)">+</button></div>
+          <button class="pc-add" onclick="addItem(this,'Notebook Dell G15 5530 RTX 3070','TI / Informática')">+ Adicionar ao Orçamento</button>
+        </div>
+      </div>
+
+      <div class="pc rev rev-d1" data-cat="info">
+        <div class="pc-img"><img src="imgs-produtos/apresentador.png" alt="Logitech Spotlight"></div>
+        <div class="pc-body">
+          <span class="pc-tag">TI / Informática</span>
+          <h3 class="pc-name">Logitech Spotlight</h3>
+          <p class="pc-specs">Apresentador premium · 30m de alcance · Highlight / Magnify / Digital Laser · USB-C + Bluetooth · 3h de uso</p>
+          <div class="pc-qty"><span class="pc-qty-lbl">Qtd</span><button class="qb" onclick="chQty(this,-1)">−</button><span class="qv">1</span><button class="qb" onclick="chQty(this,1)">+</button></div>
+          <button class="pc-add" onclick="addItem(this,'Logitech Spotlight','TI / Informática')">+ Adicionar ao Orçamento</button>
+        </div>
+      </div>
+
+      <div class="pc rev rev-d2" data-cat="info">
+        <span class="pc-hot">★ Mais Alugado</span>
+        <div class="pc-img"><img src="imgs-produtos/starlink.png" alt="Starlink"></div>
+        <div class="pc-body">
+          <span class="pc-tag">TI / Informática</span>
+          <h3 class="pc-name">Starlink</h3>
+          <p class="pc-specs">Internet via satélite SpaceX · Cobertura mundial · Ideal para eventos em locais sem infraestrutura ou transmissões ao vivo</p>
+          <div class="pc-qty"><span class="pc-qty-lbl">Qtd (diárias)</span><button class="qb" onclick="chQty(this,-1)">−</button><span class="qv">1</span><button class="qb" onclick="chQty(this,1)">+</button></div>
+          <button class="pc-add" onclick="addItem(this,'Starlink','TI / Informática')">+ Adicionar ao Orçamento</button>
+        </div>
+      </div>
+
+      <div class="pc rev rev-d3" data-cat="info">
+        <div class="pc-img"><img src="imgs-produtos/totem.png" alt="Totem Carregador"></div>
+        <div class="pc-body">
+          <span class="pc-tag">TI / Informática</span>
+          <h3 class="pc-name">Totem Carregador Coletivo</h3>
+          <p class="pc-specs">2 portas USB · 2 tomadas elétricas · 4 aparelhos simultâneos · Ativação de experiência para o público</p>
+          <div class="pc-qty"><span class="pc-qty-lbl">Qtd</span><button class="qb" onclick="chQty(this,-1)">−</button><span class="qv">1</span><button class="qb" onclick="chQty(this,1)">+</button></div>
+          <button class="pc-add" onclick="addItem(this,'Totem Carregador Coletivo','TI / Informática')">+ Adicionar ao Orçamento</button>
+        </div>
+      </div>
+
+      <!-- ELÉTRICA -->
+      <div class="pc rev" data-cat="eletrica">
+        <span class="pc-hot">★ Mais Alugado</span>
+        <div class="pc-img"><img src="imgs-produtos/bluetti.png" alt="Bluetti AC50P"></div>
+        <div class="pc-body">
+          <span class="pc-tag">Elétrica / Energia</span>
+          <h3 class="pc-name">Bluetti AC50P Estação Portátil</h3>
+          <p class="pc-specs">504Wh / 700W · Carga até 600W em 80 min · Solar até 200W · AC, USB-C, USB-A, DC · Alimenta notebooks em pontos isolados</p>
+          <div class="pc-qty"><span class="pc-qty-lbl">Qtd</span><button class="qb" onclick="chQty(this,-1)">−</button><span class="qv">1</span><button class="qb" onclick="chQty(this,1)">+</button></div>
+          <button class="pc-add" onclick="addItem(this,'Bluetti AC50P Estação Portátil','Elétrica / Energia')">+ Adicionar ao Orçamento</button>
+        </div>
+      </div>
+
+      <div class="pc rev rev-d1" data-cat="eletrica">
+        <div class="pc-img"><img src="imgs-produtos/regua-filtro.png" alt="Régua Filtro de Linha"></div>
+        <div class="pc-body">
+          <span class="pc-tag">Elétrica / Energia</span>
+          <h3 class="pc-name">Régua Filtro de Linha</h3>
+          <p class="pc-specs">6 tomadas · 300W (127V) / 500W (220V) · 50Hz / 60Hz · Protege equipamentos contra picos de energia</p>
+          <div class="pc-qty"><span class="pc-qty-lbl">Qtd</span><button class="qb" onclick="chQty(this,-1)">−</button><span class="qv">1</span><button class="qb" onclick="chQty(this,1)">+</button></div>
+          <button class="pc-add" onclick="addItem(this,'Régua Filtro de Linha','Elétrica / Energia')">+ Adicionar ao Orçamento</button>
+        </div>
+      </div>
+
+      <!-- ACESSÓRIOS -->
+      <div class="pc rev" data-cat="acess">
+        <div class="pc-img"><img src="imgs-produtos/cabos-hdmi.png" alt="Cabos HDMI"></div>
+        <div class="pc-body">
+          <span class="pc-tag">Acessórios</span>
+          <h3 class="pc-name">Cabos HDMI</h3>
+          <p class="pc-specs">Sinal Áudio e Vídeo · 18Gbps High Speed · 4K UltraHD 60Hz · Sinal limpo sem cortes em telas</p>
+          <div class="pc-vars"><div class="pc-vars-lbl">Comprimento</div><div class="pc-opts"><button class="pc-opt sel" onclick="selOpt(this)">5m</button><button class="pc-opt" onclick="selOpt(this)">10m</button></div></div>
+          <div class="pc-qty"><span class="pc-qty-lbl">Qtd</span><button class="qb" onclick="chQty(this,-1)">−</button><span class="qv">1</span><button class="qb" onclick="chQty(this,1)">+</button></div>
+          <button class="pc-add" onclick="addItem(this,'Cabos HDMI','Acessórios')">+ Adicionar ao Orçamento</button>
+        </div>
+      </div>
+
+      <div class="pc rev rev-d1" data-cat="acess">
+        <span class="pc-hot">★ Mais Alugado</span>
+        <div class="pc-img"><img src="imgs-produtos/passa-cabo.png" alt="Passa Cabo 2 Vias"></div>
+        <div class="pc-body">
+          <span class="pc-tag">Acessórios</span>
+          <h3 class="pc-name">Passa Cabo 2 Vias</h3>
+          <p class="pc-specs">Material TPE · Base preta / Tampa amarela · Carga máx 16T (4T por roda) · 2 canais de passagem · Para cabos simples e áreas de circulação leve</p>
+          <div class="pc-qty"><span class="pc-qty-lbl">Qtd</span><button class="qb" onclick="chQty(this,-1)">−</button><span class="qv">1</span><button class="qb" onclick="chQty(this,1)">+</button></div>
+          <button class="pc-add" onclick="addItem(this,'Passa Cabo 2 Vias','Acessórios')">+ Adicionar ao Orçamento</button>
+        </div>
+      </div>
+
+      <div class="pc rev rev-d2" data-cat="acess">
+        <span class="pc-hot">★ Mais Alugado</span>
+        <div class="pc-img"><img src="imgs-produtos/passa-cabo-5v.png" alt="Passa Cabo 5 Vias"></div>
+        <div class="pc-body">
+          <span class="pc-tag">Acessórios</span>
+          <h3 class="pc-name">Passa Cabo 5 Vias</h3>
+          <p class="pc-specs">Material TPE · Base preta / Tampa amarela · Carga máx 20T (5T por roda) · 5 canais de passagem · Para múltiplos cabos em áreas de grande fluxo de público</p>
+          <div class="pc-qty"><span class="pc-qty-lbl">Qtd</span><button class="qb" onclick="chQty(this,-1)">−</button><span class="qv">1</span><button class="qb" onclick="chQty(this,1)">+</button></div>
+          <button class="pc-add" onclick="addItem(this,'Passa Cabo 5 Vias','Acessórios')">+ Adicionar ao Orçamento</button>
+        </div>
+      </div>
+
+      <div class="pc rev rev-d2" data-cat="acess">
+        <div class="pc-img"><img src="imgs-produtos/organizador-filas.png" alt="Organizador de Filas"></div>
+        <div class="pc-body">
+          <span class="pc-tag">Acessórios</span>
+          <h3 class="pc-name">Organizador de Filas Unifila</h3>
+          <p class="pc-specs">Altura 96cm · Tubo 2" · Fita 5cm × 2m · Triagem na entrada, buffet ou isolamento da régie técnica</p>
+          <div class="pc-qty"><span class="pc-qty-lbl">Qtd</span><button class="qb" onclick="chQty(this,-1)">−</button><span class="qv">1</span><button class="qb" onclick="chQty(this,1)">+</button></div>
+          <button class="pc-add" onclick="addItem(this,'Organizador de Filas Unifila','Acessórios')">+ Adicionar ao Orçamento</button>
+        </div>
+      </div>
+
+      <div class="pc rev rev-d3" data-cat="acess">
+        <div class="pc-img"><img src="imgs-produtos/ventilador.png" alt="Ventilador Turbo"></div>
+        <div class="pc-body">
+          <span class="pc-tag">Acessórios</span>
+          <h3 class="pc-name">Ventilador Turbo Britania BCA40A</h3>
+          <p class="pc-specs">220V · Evita superaquecimento de notebooks e servidores na régie técnica · Conforto térmico em camarins</p>
+          <div class="pc-qty"><span class="pc-qty-lbl">Qtd</span><button class="qb" onclick="chQty(this,-1)">−</button><span class="qv">1</span><button class="qb" onclick="chQty(this,1)">+</button></div>
+          <button class="pc-add" onclick="addItem(this,'Ventilador Turbo Britania','Acessórios')">+ Adicionar ao Orçamento</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- EVENTOS -->
+<div id="eventos" class="eventos-wrap">
+  <div class="eventos-inner">
+    <div class="sec-head rev">
+      <div>
+        <div class="sec-eyebrow">Portfólio 2025 · 2026</div>
+        <div class="sec-title">EVENTOS<br>REALIZADOS</div>
+      </div>
+      <p class="sec-sub">Presente nos maiores eventos do Brasil — do show à convenção corporativa, do festival ao torneio esportivo.</p>
+    </div>
+    <div style="margin-top:56px">
+      <div class="ev-row rev"><span class="ev-num">01</span><div><div class="ev-cat">Corporativo · Turismo</div><div class="ev-name">CONVENÇÃO CVC 2026</div></div><span class="ev-badge">2026</span></div>
+      <div class="ev-row rev rev-d1"><span class="ev-num">02</span><div><div class="ev-cat">Lançamento · Automotivo</div><div class="ev-name">LANÇAMENTO SONIC 2026</div></div><span class="ev-badge">2026</span></div>
+      <div class="ev-row rev rev-d2"><span class="ev-num">03</span><div><div class="ev-cat">Premiação · Financeiro</div><div class="ev-name">PRÊMIO CERTO SANTANDER 2026</div></div><span class="ev-badge">2026</span></div>
+      <div class="ev-row rev rev-d3"><span class="ev-num">04</span><div><div class="ev-cat">Cultura · Streaming</div><div class="ev-name">SPOTIFY EQUAL DAY</div></div><span class="ev-badge">2025 · 2026</span></div>
+      <div class="ev-row rev rev-d1"><span class="ev-num">05</span><div><div class="ev-cat">Institucional · Jurídico</div><div class="ev-name">OAB ENJA 2026</div></div><span class="ev-badge">2026</span></div>
+      <div class="ev-row rev rev-d2"><span class="ev-num">06</span><div><div class="ev-cat">Esportivo · Tênis</div><div class="ev-name">LA OPEN 2026</div></div><span class="ev-badge">2026</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- GALERIA -->
+<div class="galeria-section">
+  <div class="galeria-head rev">
+    <div class="sec-eyebrow">Nossa Estrutura na Prática</div>
+    <div class="sec-title">VEJA A ALL STAGE<br>EM AÇÃO</div>
+  </div>
+  <div class="galeria-grid">
+    <div class="gal-item"><img src="imgs-eventos/evento-01.jpg" alt="Evento ALL STAGE"><div class="gal-overlay"></div></div>
+    <div class="gal-item"><img src="imgs-eventos/evento-02.jpg" alt="Evento ALL STAGE"><div class="gal-overlay"></div></div>
+    <div class="gal-item"><img src="imgs-eventos/evento-03.jpg" alt="Evento ALL STAGE"><div class="gal-overlay"></div></div>
+    <div class="gal-item"><img src="imgs-eventos/evento-04.jpg" alt="Evento ALL STAGE"><div class="gal-overlay"></div></div>
+    <div class="gal-item"><img src="imgs-eventos/evento-05.jpg" alt="Evento ALL STAGE"><div class="gal-overlay"></div></div>
+  </div>
+  <div class="galeria-cta">
+    
+    <a href="https://www.instagram.com" target="_blank" class="btn-sec" style="padding:10px 24px;font-size:11px">Ver mais no Instagram →</a>
+  </div>
+</div>
+
+<!-- MARCAS PARCEIRAS -->
+<div class="marcas-wrap">
+  <div class="marcas-inner">
+    <div class="rev">
+      <div class="sec-eyebrow">Marcas Parceiras</div>
+      <div class="sec-title">TECNOLOGIA DAS<br>MELHORES MARCAS</div>
+    </div>
+    <div class="marcas-grid">
+      <div class="marca-card rev"><img src="imgs-marcas/hollyland-logo.png" class="marca-logo" alt="Hollyland"></div>
+      <div class="marca-card rev rev-d1"><img src="imgs-marcas/samsung-logo.png" class="marca-logo" alt="Samsung"></div>
+      <div class="marca-card rev rev-d2"><img src="imgs-marcas/bluetti-logo.png" class="marca-logo" alt="Bluetti"></div>
+      <div class="marca-card rev rev-d3"><img src="imgs-marcas/starlink-logo.png" class="marca-logo" alt="Starlink"></div>
+      <div class="marca-card rev"><img src="imgs-marcas/dell-logo.png" class="marca-logo" alt="Dell"></div>
+      <div class="marca-card rev rev-d1"><img src="imgs-marcas/jbl-logo.png" class="marca-logo" alt="JBL"></div>
+      <div class="marca-card rev rev-d2"><img src="imgs-marcas/logitech-logo.png" class="marca-logo" alt="Logitech"></div>
+    </div>
+  </div>
+</div>
+
+<!-- NOSSA HISTÓRIA -->
+<div class="historia-wrap">
+  <div class="historia-inner">
+    <div class="rev">
+      <div class="sec-eyebrow">Nossa História</div>
+      <div class="sec-title" style="margin-bottom:32px">10 ANOS<br>DE BACKSTAGE</div>
+      <p class="qs-p">A <strong>ALL STAGE</strong> nasceu da paixão pelo ramo de eventos. Estruturada a quatro mãos por dois profissionais com longa jornada no mercado.</p>
+      <p class="qs-p">Com <strong>10 anos de experiência</strong> no backstage dos maiores eventos do Brasil, atendemos todos os formatos e portes — do corporativo ao festival, em <strong>todo o território nacional</strong>.</p>
+      <p class="qs-p">Mais do que locar equipamentos, entregamos a <strong>tranquilidade técnica</strong> que cada evento precisa para acontecer sem imprevistos.</p>
+      <div class="qs-divider"></div>
+      <div class="qs-sign">Moranga &amp; Vivi — Fundadores ALL STAGE</div>
+    </div>
+    <div class="rev rev-d2">
+      <div class="hv-item"><div class="hv-role">Gestão Operacional</div><div class="hv-name">VIVI</div><div class="hv-desc">Bastidores organizacionais, processos integrados e controle rigoroso da qualidade das entregas.</div></div>
+      <div class="hv-item"><div class="hv-role">Frente Comercial</div><div class="hv-name">MORANGA</div><div class="hv-desc">Prospecção de novos negócios, atendimento e direcionamento geral da marca.</div></div>
+      <div style="background:var(--bk2);border:1px solid rgba(212,175,55,.15);padding:28px 24px;margin-top:2px">
+        <div style="font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);opacity:.6;margin-bottom:12px">Presença Nacional</div>
+        <div style="font-family:var(--fd);font-size:56px;line-height:1;color:var(--gold);opacity:.2;margin-bottom:8px">100%</div>
+        <div style="font-size:13px;color:var(--gl);font-weight:300;line-height:1.6">Atendemos o Brasil inteiro — onde seu evento for, a ALL STAGE está.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CLIENTES -->
+<div style="background:var(--bk);border-bottom:1px solid var(--bd)">
+  <div class="clientes-wrap">
+    <div class="rev">
+      <div class="sec-eyebrow">Nossos Clientes</div>
+      <div class="sec-title">QUEM CONFIA<br>NA ALL STAGE</div>
+    </div>
+    <div class="clientes-grid">
+      <a href="https://www.casadavilahub.com/" target="_blank" class="cliente-card rev"><img src="imgs-agencias/casa-da-vila.png" class="cliente-logo" alt="Casa da Vila"></a>
+      <a href="https://aatb.com.br/" target="_blank" class="cliente-card rev rev-d1"><img src="imgs-agencias/innova.png" class="cliente-logo" alt="Innova"></a>
+      <a href="https://eaimkt.com.br/" target="_blank" class="cliente-card rev rev-d2"><img src="imgs-agencias/eai.png" class="cliente-logo" alt="EaÍ!? Content"></a>
+      <a href="https://bferraz.ag/" target="_blank" class="cliente-card rev rev-d3"><img src="imgs-agencias/bferraz.png" class="cliente-logo" alt="Bferraz"></a>
+      <a href="https://oito.ag/" target="_blank" class="cliente-card rev"><img src="imgs-agencias/oito.png" class="cliente-logo" alt="Oito"></a>
+      <a href="#" class="cliente-card rev rev-d1"><img src="imgs-agencias/complo.png" class="cliente-logo" alt="Complo"></a>
+      <a href="https://www.merakinaoagencia.com.br/" target="_blank" class="cliente-card rev rev-d2"><img src="imgs-agencias/meraki.png" class="cliente-logo" alt="Meraki"></a>
+      <a href="https://reddoor.ag/" target="_blank" class="cliente-card rev rev-d3"><img src="imgs-agencias/red-door.png" class="cliente-logo" alt="REDDOR"></a>
+      <a href="https://nico.ag/" target="_blank" class="cliente-card rev"><img src="imgs-agencias/nico.png" class="cliente-logo" alt="Nico"></a>
+      <a href="https://agenciaterrua.com.br/" target="_blank" class="cliente-card rev rev-d1"><img src="imgs-agencias/terrua.png" class="cliente-logo" alt="Terrua"></a>
+      <a href="https://liveaction.com.br/" target="_blank" class="cliente-card rev rev-d2"><img src="imgs-agencias/live-action.png" class="cliente-logo" alt="Live Action"></a>
+      <a href="https://www.becomunica.com.br/" target="_blank" class="cliente-card rev rev-d3"><img src="imgs-agencias/be-comunica.png" class="cliente-logo" alt="Be Comunica"></a>
+    </div>
+  </div>
+</div>
+
+<!-- CONTATO -->
+<div id="contato" class="ct-wrap">
+  <div class="ct-inner">
+    <div class="rev">
+      <div class="sec-eyebrow">Contato</div>
+      <div class="sec-title" style="margin-bottom:44px">FALE<br>CONOSCO</div>
+      <div class="ct-info-item">
+        <div class="ct-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--gold)"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></div>
+        <div>
+          <div class="ct-lbl">WhatsApp Comercial</div>
+          <div class="ct-val"><a href="https://wa.me/5511961807234" target="_blank">(11) 96180 7234</a></div>
+          <div class="ct-sub">Atendimento comercial · Dentro e fora do horário comercial</div>
+        </div>
+      </div>
+      <div class="ct-info-item">
+        <div class="ct-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--gold)"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></div>
+        <div>
+          <div class="ct-lbl">E-mail</div>
+          <div class="ct-val"><a href="mailto:contato@allstage.com.br">contato@allstage.com.br</a></div>
+          <div class="ct-sub">Resposta em até 4h úteis</div>
+        </div>
+      </div>
+      <div class="ct-info-item">
+        <div class="ct-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--gold)"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
+        <div>
+          <div class="ct-lbl">Horário de Atendimento</div>
+          <div class="ct-val">Dentro e fora do horário comercial</div>
+          <div class="ct-sub">Porque eventos não têm hora certa 😄</div>
+        </div>
+      </div>
+      <div class="ct-info-item">
+        <div class="ct-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--gold)"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div>
+        <div>
+          <div class="ct-lbl">Endereço</div>
+          <div class="ct-val">Rua Mil Oitocentos e Vinte e Dois, 512</div>
+          <div class="ct-sub">Ipiranga — São Paulo / SP · CEP 04216-000</div>
+        </div>
+      </div>
+      <div class="ct-info-item">
+        <div class="ct-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--gold)"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></div>
+        <div>
+          <div class="ct-lbl">Área de Atuação</div>
+          <div class="ct-val">Brasil Inteiro</div>
+          <div class="ct-sub">Onde seu evento for, a All Stage está</div>
+          <a href="apresentacao-allstage.pdf" download class="ct-download">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            Baixar Apresentação ALL STAGE
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="rev rev-d2">
+      <div class="ct-form">
+        <div class="cf-row">
+          <div class="cf-field"><label>Nome</label><input type="text" placeholder="Seu nome completo"></div>
+          <div class="cf-field"><label>Telefone</label><input type="tel" placeholder="(11) 9 0000 0000"></div>
+        </div>
+        <div class="cf-field"><label>E-mail</label><input type="email" placeholder="seu@email.com"></div>
+        <div class="cf-field"><label>Tipo de Evento</label>
+          <select><option value="">Selecione o tipo de evento</option><option>Show / Festival</option><option>Corporativo / Convenção</option><option>Lançamento de Produto</option><option>Premiação / Awards</option><option>Esportivo</option><option>Formatura / Institucional</option><option>Cultural / Teatro</option><option>Casamento / Social</option><option>Outro</option></select>
+        </div>
+        <div class="cf-field"><label>Detalhes do Evento</label><textarea placeholder="Data do evento, local, número de participantes, equipamentos de interesse..."></textarea></div>
+        <button class="cf-submit" onclick="submitForm(this)">💬 Enviar via WhatsApp</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-inner">
+    <div class="ft-top">
+      <div>
+        <img src="logo-allstage-1.png" class="ft-logo-img" alt="ALL STAGE" onerror="this.style.display='none'">
+        <p class="ft-brand-desc">Tudo que você precisa para o seu backstage. Infraestrutura, TI, Tecnologia e Técnica. Atendemos o Brasil inteiro.</p>
+        <div class="ft-social">
+          <a href="https://instagram.com" class="ft-soc" title="Instagram" target="_blank">📸</a>
+          <a href="https://wa.me/5511961807234" class="ft-soc" title="WhatsApp" target="_blank">💬</a>
+          <a href="mailto:contato@allstage.com.br" class="ft-soc" title="E-mail">✉️</a>
+        </div>
+      </div>
+      <div>
+        <div class="ft-col-title">Navegação</div>
+        <ul class="ft-links"><li><a href="#quem-somos">Quem Somos</a></li><li><a href="#produtos">Produtos</a></li><li><a href="#eventos">Eventos</a></li><li><a href="#contato">Fale Conosco</a></li></ul>
+      </div>
+      <div>
+        <div class="ft-col-title">Categorias</div>
+        <ul class="ft-links"><li><a href="#produtos">Áudio / Intercom</a></li><li><a href="#produtos">Estrutura / Palco</a></li><li><a href="#produtos">Vídeo / Telas</a></li><li><a href="#produtos">TI / Informática</a></li><li><a href="#produtos">Elétrica / Energia</a></li><li><a href="#produtos">Acessórios</a></li></ul>
+      </div>
+      <div>
+        <div class="ft-col-title">Contato</div>
+        <ul class="ft-links"><li><a href="https://wa.me/5511961807234" target="_blank">(11) 96180 7234</a></li><li><a href="mailto:contato@allstage.com.br">contato@allstage.com.br</a></li><li><a style="color:var(--gm);pointer-events:none">Ipiranga — São Paulo / SP</a></li></ul>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <span class="ft-copy">© 2026 ALL STAGE <span>·</span> Your Needs | Our Solutions</span>
+      <span class="ft-copy">Locação de Equipamentos Audiovisuais <span>·</span> São Paulo / SP</span>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING BUDGET -->
+<div class="fb-wrap">
+  <div class="fb-panel" id="fbp">
+    <div class="fb-head"><span class="fb-title">ORÇAMENTO</span><button class="fb-x" onclick="toggleBud()">✕</button></div>
+    <div class="fb-list" id="fbl"><div class="fb-empty" id="fbempty">Nenhum item adicionado ainda.</div></div>
+    <div class="fb-foot">
+      <button class="fb-send" onclick="sendBud()">💬 Enviar via WhatsApp</button>
+      <button class="fb-clear" onclick="clearBud()">Limpar Orçamento</button>
+    </div>
+  </div>
+  <button class="fb-btn" onclick="toggleBud()" id="fbtog">📋<span class="fb-badge" id="fbbadge">0</span></button>
+</div>
+
+<script>
+// CURSOR
+const cur=document.getElementById('cur'),curR=document.getElementById('curR');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
+document.querySelectorAll('a,button,[onclick]').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.classList.add('h');curR.classList.add('h')});
+  el.addEventListener('mouseleave',()=>{cur.classList.remove('h');curR.classList.remove('h')});
+});
+(function animR(){rx+=(mx-rx)*.11;ry+=(my-ry)*.11;curR.style.left=rx+'px';curR.style.top=ry+'px';requestAnimationFrame(animR)})();
+
+// NAV
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('sc',window.scrollY>60),{passive:true});
+
+// REVEAL
+const revObs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.1});
+document.querySelectorAll('.rev').forEach(el=>revObs.observe(el));
+
+// COUNTER
+const cntObs=new IntersectionObserver(entries=>entries.forEach(e=>{
+  if(e.isIntersecting&&!e.target.dataset.done){
+    e.target.dataset.done=1;
+    const target=+e.target.dataset.count,dur=1600;let start=null;
+    (function step(ts){if(!start)start=ts;const p=Math.min((ts-start)/dur,1);e.target.textContent=Math.floor(p*target)+(p>=1&&target>=100?'+':'');if(p<1)requestAnimationFrame(step)})(performance.now());
+  }
+}),{threshold:.5});
+document.querySelectorAll('[data-count]').forEach(el=>cntObs.observe(el));
+
+
+// FILTER
+function filterProd(cat,btn){document.querySelectorAll('.pf-btn').forEach(b=>b.classList.remove('act'));btn.classList.add('act');document.querySelectorAll('.pc').forEach(pc=>{pc.style.display=(cat==='all'||pc.dataset.cat===cat)?'flex':'none'})}
+
+// QTY
+function chQty(btn,d){const v=btn.parentElement.querySelector('.qv');v.textContent=Math.max(1,parseInt(v.textContent)+d)}
+function selOpt(btn){btn.closest('.pc-opts').querySelectorAll('.pc-opt').forEach(b=>b.classList.remove('sel'));btn.classList.add('sel')}
+
+// BUDGET
+let items=[];
+function addItem(btn,name,cat){
+  const qty=parseInt(btn.closest('.pc-body').querySelector('.qv').textContent);
+  const idx=items.findIndex(i=>i.name===name);
+  if(idx>-1)items[idx].qty+=qty;else items.push({name,cat,qty});
+  renderBud();document.getElementById('fbp').classList.add('open');
+}
+function renderBud(){
+  const list=document.getElementById('fbl'),badge=document.getElementById('fbbadge');
+  list.querySelectorAll('.fb-item').forEach(e=>e.remove());
+  const emp=list.querySelector('.fb-empty');
+  if(items.length){if(emp)emp.remove();items.forEach((it,i)=>{const d=document.createElement('div');d.className='fb-item';d.innerHTML=`<span class="fb-item-name">${it.name}</span><span class="fb-item-qty">${it.qty}x</span><button class="fb-item-del" onclick="removeItem(${i})">✕</button>`;list.appendChild(d)})}
+  else if(!emp){const d=document.createElement('div');d.className='fb-empty';d.id='fbempty';d.textContent='Nenhum item adicionado ainda.';list.appendChild(d)}
+  const total=items.reduce((s,i)=>s+i.qty,0);badge.textContent=total;badge.style.display=total>0?'flex':'none';
+}
+function removeItem(i){items.splice(i,1);renderBud()}
+function clearBud(){items=[];renderBud()}
+function toggleBud(){document.getElementById('fbp').classList.toggle('open')}
+function sendBud(){
+  if(!items.length){alert('Adicione ao menos um item ao orçamento.');return}
+  let msg='Olá, ALL STAGE! Gostaria de solicitar um orçamento:%0A%0A';
+  items.forEach(it=>{msg+=`▸ ${encodeURIComponent(it.name)} — ${it.qty}x%0A`});
+  msg+='%0AAguardo retorno. Obrigado!';
+  window.open(`https://wa.me/5511961807234?text=${msg}`,'_blank');
+}
+function submitForm(btn){
+  const form=btn.closest('.ct-form');
+  const nome=form.querySelector('input[type=text]').value;
+  const tel=form.querySelector('input[type=tel]').value;
+  const email=form.querySelector('input[type=email]').value;
+  const tipo=form.querySelector('select').value;
+  const msg=form.querySelector('textarea').value;
+  if(!nome||!tel){alert('Por favor preencha nome e telefone.');return}
+  const txt=`Olá, ALL STAGE!%0A%0ANome: ${encodeURIComponent(nome)}%0ATelefone: ${encodeURIComponent(tel)}%0AEmail: ${encodeURIComponent(email)}%0ATipo: ${encodeURIComponent(tipo||'Não informado')}%0A%0ADetalhes: ${encodeURIComponent(msg)}`;
+  window.open(`https://wa.me/5511961807234?text=${txt}`,'_blank');
+}
+</script>
+</body>
+</html>
