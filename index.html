@@ -68,8 +68,13 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:997;b
 .cur-r.h{width:48px;height:48px;opacity:.3}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:900;padding:20px 56px;display:flex;align-items:center;justify-content:space-between;gap:24px;transition:background .5s,padding .4s,border-color .4s;border-bottom:1px solid transparent}
-nav.sc{background:rgba(8,8,8,0.97);backdrop-filter:blur(24px);padding:12px 56px;border-bottom-color:var(--bd)}
+nav{position:fixed;top:0;left:0;right:0;z-index:900;transition:background .5s,border-color .4s;border-bottom:1px solid transparent}
+nav.sc{background:rgba(8,8,8,0.97);backdrop-filter:blur(24px);border-bottom-color:var(--bd)}
+/* .nav-inner shares the same max-width:1380px + 56px padding as every
+   other section wrapper, so the logo lines up with the section titles
+   below it instead of hugging the raw viewport edge. */
+.nav-inner{max-width:1380px;margin:0 auto;width:100%;padding:20px 56px;display:flex;align-items:center;justify-content:space-between;gap:24px;transition:padding .4s}
+nav.sc .nav-inner{padding-top:12px;padding-bottom:12px}
 .nav-logo{text-decoration:none;display:flex;align-items:center;gap:8px;flex-shrink:0}
 .nav-logo-img{height:80px;width:auto;object-fit:contain}
 .nav-logo-fallback{display:flex;flex-direction:column;line-height:1}
@@ -264,8 +269,8 @@ nav.sc{background:rgba(8,8,8,0.97);backdrop-filter:blur(24px);padding:12px 56px;
 .hv-desc{font-size:12px;color:var(--gl);font-weight:300;line-height:1.5}
 
 /* MARCAS */
-.marcas-wrap{background:var(--bk2);border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);padding:64px 56px}
-.marcas-inner{max-width:1380px;margin:0 auto}
+.marcas-wrap{background:var(--bk2);border-top:1px solid var(--bd);border-bottom:1px solid var(--bd)}
+.marcas-inner{max-width:1380px;margin:0 auto;padding:64px 56px}
 .marcas-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;margin-top:44px}
 .marca-card{background:var(--bk);border:1px solid var(--bd);padding:28px 16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;transition:background .2s,border-color .3s;cursor:none;min-height:130px}
 .marca-card:hover{background:var(--bk3);border-color:rgba(212,175,55,.25)}
@@ -311,8 +316,8 @@ nav.sc{background:rgba(8,8,8,0.97);backdrop-filter:blur(24px);padding:12px 56px;
 .cf-submit:hover{background:var(--gold2)}
 
 /* FOOTER */
-footer{background:var(--bk);border-top:1px solid var(--bd);padding:56px 56px 28px}
-.ft-inner{max-width:1380px;margin:0 auto}
+footer{background:var(--bk);border-top:1px solid var(--bd)}
+.ft-inner{max-width:1380px;margin:0 auto;padding:56px 56px 28px}
 .ft-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:56px;margin-bottom:52px}
 .ft-logo-img{height:68px;width:auto;object-fit:contain;margin-bottom:12px;opacity:.7}
 .ft-brand-desc{font-size:13px;color:var(--gm);margin-top:8px;line-height:1.65;max-width:210px}
@@ -365,18 +370,17 @@ footer{background:var(--bk);border-top:1px solid var(--bd);padding:56px 56px 28p
 
 /* RESPONSIVE */
 @media(max-width:1100px){
-  nav,footer{padding-left:32px;padding-right:32px}
-  nav.sc{padding-left:32px;padding-right:32px}
+  .nav-inner,.ft-inner{padding-left:32px;padding-right:32px}
   .hero-inner,.qs-grid,.ct-inner,.historia-inner{grid-template-columns:1fr;gap:48px}
   .pilares-grid{grid-template-columns:1fr 1fr}
   .ft-top{grid-template-columns:1fr 1fr;gap:40px}
   .marcas-grid{grid-template-columns:repeat(4,1fr)}
-  .produtos-wrap,.pilares-inner,.eventos-inner,.qs-wrap,.ct-inner,.clientes-wrap,.marcas-wrap,.ct-wrap .ct-inner,.historia-inner,.galeria-head,.galeria-cta{padding-left:32px;padding-right:32px}
+  .produtos-wrap,.pilares-inner,.eventos-inner,.qs-wrap,.ct-inner,.clientes-wrap,.marcas-inner,.ct-wrap .ct-inner,.historia-inner,.galeria-head,.galeria-cta{padding-left:32px;padding-right:32px}
   .clientes-grid{grid-template-columns:repeat(4,1fr)}
 }
 @media(max-width:768px){
-  nav{padding:12px 20px}
-  nav.sc{padding:10px 20px}
+  .nav-inner{padding:12px 20px}
+  nav.sc .nav-inner{padding-top:10px;padding-bottom:10px}
   .nav-search{display:none}
   .nav-burger{display:flex}
   .nav-links li:not(:last-child){display:none}
@@ -402,8 +406,8 @@ footer{background:var(--bk);border-top:1px solid var(--bd);padding:56px 56px 28p
   .marcas-grid{grid-template-columns:repeat(3,1fr)}
   .produtos-wrap,.pilares-inner,.eventos-inner,.qs-wrap,.clientes-wrap,.historia-inner,.galeria-head,.galeria-cta{padding:56px 20px}
   .ct-wrap .ct-inner{padding:56px 20px}
-  .marcas-wrap{padding:56px 20px}
-  footer{padding:40px 20px 20px}
+  .marcas-inner{padding:56px 20px}
+  .ft-inner{padding:40px 20px 20px}
 }
 
 /* INTERCOM HERO BLOCK */
@@ -442,21 +446,23 @@ footer{background:var(--bk);border-top:1px solid var(--bd);padding:56px 56px 28p
 
 <!-- NAV -->
 <nav id="nav">
-  <a href="#" class="nav-logo">
-    <div class="nav-logo-fallback">
-      <span class="logo-all">ALL STAGE</span>
-    </div>
-    <div class="logo-dot"></div>
-  </a>
-  <ul class="nav-links" id="navLinks">
-    <li><a href="#quem-somos">Quem Somos</a></li>
-    <li><a href="#produtos">Produtos</a></li>
-    <li><a href="#eventos">Eventos</a></li>
-    <li><a href="#contato" class="btn-nav">Orçamento</a></li>
-  </ul>
-  <button class="nav-burger" id="navBurger" aria-label="Abrir menu" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <div class="nav-logo-fallback">
+        <span class="logo-all">ALL STAGE</span>
+      </div>
+      <div class="logo-dot"></div>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#quem-somos">Quem Somos</a></li>
+      <li><a href="#produtos">Produtos</a></li>
+      <li><a href="#eventos">Eventos</a></li>
+      <li><a href="#contato" class="btn-nav">Orçamento</a></li>
+    </ul>
+    <button class="nav-burger" id="navBurger" aria-label="Abrir menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </nav>
 <div class="nav-overlay" id="navOverlay"></div>
 
