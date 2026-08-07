@@ -1,0 +1,11 @@
+# lixo do sistema operacional
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+._*
+
+# arquivos temporarios de editor
+*~
+*.tmp
+*.bak

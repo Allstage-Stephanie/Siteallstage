@@ -3,10 +3,45 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ALL STAGE — Your Needs | Our Solutions</title>
+<title>ALL STAGE — Comunicação de Missão Crítica</title>
+<meta name="description" content="Locação de equipamentos para eventos em todo o Brasil: intercom, telas, Starlink, notebooks, energia e estrutura de palco. Equipe técnica no local.">
+<meta name="theme-color" content="#080808">
+
+<!-- ================================================================
+     TROQUE A LINHA ABAIXO pelo endereço real do site depois de publicar.
+     É o único ajuste manual necessário. Sem ele, o link compartilhado
+     no WhatsApp aparece sem a imagem de prévia.
+     Ex.: https://allstage.github.io/site/  ou  https://www.allstage.com.br/
+     ================================================================ -->
+<meta property="og:url" content="https://SEU-USUARIO.github.io/allstage/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ALL STAGE">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="ALL STAGE — Your Needs | Our Solutions">
+<meta property="og:description" content="Locação de equipamentos para eventos em todo o Brasil: intercom, telas, Starlink, notebooks, energia e estrutura de palco. Equipe técnica no local.">
+<meta property="og:image" content="og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ALL STAGE — Your Needs | Our Solutions">
+<meta name="twitter:description" content="Locação de equipamentos para eventos em todo o Brasil. Equipe técnica no local.">
+<meta name="twitter:image" content="og-image.png">
+
+<link rel="icon" href="favicon.png" sizes="32x32">
+<link rel="icon" href="favicon-192.png" sizes="192x192">
+<link rel="icon" href="favicon-512.png" sizes="512x512">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+
+<!-- Marca que o JavaScript rodou. As animacoes de entrada so' escondem o
+     conteudo se esta classe existir - assim, se o JS falhar ou estiver
+     desligado, o site aparece inteiro em vez de ficar em branco. -->
+<script>document.documentElement.classList.add('js')</script>
+
 <style>
 :root{
   --bk:#080808;--bk2:#101010;--bk3:#181818;--bk4:#202020;
@@ -121,8 +156,33 @@ nav.sc{background:rgba(8,8,8,0.97);backdrop-filter:blur(24px);padding:12px 56px;
 .pc-hot{position:absolute;top:10px;left:10px;z-index:3;background:var(--gold);color:var(--bk);font-size:10px;font-family:var(--fd);letter-spacing:1.5px;padding:4px 9px;font-weight:700}
 .pc:hover{transform:translateY(-5px);border-color:rgba(212,175,55,.3)}
 .pc-img{aspect-ratio:4/3;background:var(--bk3);overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center}
-.pc-img img{width:100%;height:100%;object-fit:contain;padding:14px;transition:transform .5s var(--ease)}
-.pc:hover .pc-img img{transform:scale(1.05)}
+.pc-img img{width:100%;height:100%;object-fit:contain;padding:2px;transform:scale(1.14);transition:transform .5s var(--ease)}
+.pc:hover .pc-img img{transform:scale(1.22)}
+/* produtos que ficam sem zoom (imagem larga demais, cortaria nas bordas) */
+.pc-img img[src$="mesa-branca.png"],
+.pc-img img[src$="samsung-tv.png"],
+.pc-img img[src$="totem.png"],
+.pc-img img[src$="cabos-hdmi.png"],
+.pc-img img[src$="passa-cabo.png"],
+.pc-img img[src$="passa-cabo-5v.png"],
+.pc-img img[src$="organizador-filas.png"]{padding:8px;transform:none}
+.pc:hover .pc-img img[src$="mesa-branca.png"],
+.pc:hover .pc-img img[src$="samsung-tv.png"],
+.pc:hover .pc-img img[src$="totem.png"],
+.pc:hover .pc-img img[src$="cabos-hdmi.png"],
+.pc:hover .pc-img img[src$="passa-cabo.png"],
+.pc:hover .pc-img img[src$="passa-cabo-5v.png"],
+.pc:hover .pc-img img[src$="organizador-filas.png"]{transform:scale(1.05)}
+/* produtos com zoom reforçado (foto com muita margem sobrando) */
+.pc-img img[src$="/praticavel.png"],
+.pc-img img[src$="/mesa.png"],
+.pc-img img[src$="/apresentador.png"]{transform:scale(1.3)}
+.pc:hover .pc-img img[src$="/praticavel.png"],
+.pc:hover .pc-img img[src$="/mesa.png"],
+.pc:hover .pc-img img[src$="/apresentador.png"]{transform:scale(1.38)}
+/* starlink: foto tem muita margem vazia, precisa de zoom extra */
+.pc-img img[src$="/starlink.png"]{transform:scale(1.45)}
+.pc:hover .pc-img img[src$="/starlink.png"]{transform:scale(1.53)}
 .pc-img-icon{font-size:52px;opacity:.18}
 .pc-body{padding:22px;display:flex;flex-direction:column;flex:1}
 .pc-tag{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:7px;opacity:.7}
@@ -200,10 +260,15 @@ nav.sc{background:rgba(8,8,8,0.97);backdrop-filter:blur(24px);padding:12px 56px;
 .marcas-wrap{background:var(--bk2);border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);padding:64px 56px}
 .marcas-inner{max-width:1380px;margin:0 auto}
 .marcas-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;margin-top:44px}
-.marca-card{background:var(--bk);border:1px solid var(--bd);padding:28px 20px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;transition:background .2s,border-color .3s;cursor:none;min-height:100px}
+.marca-card{background:var(--bk);border:1px solid var(--bd);padding:28px 16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;transition:background .2s,border-color .3s;cursor:none;min-height:130px}
 .marca-card:hover{background:var(--bk3);border-color:rgba(212,175,55,.25)}
-.marca-logo{height:40px;width:auto;max-width:120px;object-fit:contain;filter:brightness(0) invert(1);opacity:.45;transition:opacity .3s}
+.marca-logo{height:64px;width:auto;max-width:175px;object-fit:contain;filter:brightness(0) invert(1);opacity:.45;transition:opacity .3s}
 .marca-card:hover .marca-logo{opacity:.85}
+/* logos que ficam grandes demais em relação aos outros */
+.marca-logo[src$="jbl-logo.png"],
+.marca-logo[src$="logitech-logo.png"]{transform:scale(.88)}
+/* logo que fica pequeno demais em relação aos outros */
+.marca-logo[src$="starlink-logo.png"]{transform:scale(1.12)}
 .marca-tag{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gd);transition:color .2s}
 .marca-card:hover .marca-tag{color:var(--gold);opacity:.5}
 
@@ -281,8 +346,11 @@ footer{background:var(--bk);border-top:1px solid var(--bd);padding:56px 56px 28p
 .fb-badge{position:absolute;top:-4px;right:-4px;background:var(--bk);color:var(--gold);border:1px solid var(--gold);width:18px;height:18px;border-radius:50%;font-size:10px;font-weight:600;display:none;align-items:center;justify-content:center}
 
 /* REVEAL */
-.rev{opacity:0;transform:translateY(20px);transition:opacity .75s var(--ease),transform .75s var(--ease)}
-.rev.in{opacity:1;transform:translateY(0)}
+/* o ".js" na frente e' proposital: sem JavaScript nada fica escondido */
+.js .rev{opacity:0;transform:translateY(20px);transition:opacity .75s var(--ease),transform .75s var(--ease)}
+.js .rev.in{opacity:1;transform:translateY(0)}
+/* quem prefere menos animacao no sistema ve' o conteudo direto */
+@media(prefers-reduced-motion:reduce){.js .rev{opacity:1;transform:none;transition:none}}
 .rev-d1{transition-delay:.08s}
 .rev-d2{transition-delay:.16s}
 .rev-d3{transition-delay:.24s}
@@ -322,6 +390,35 @@ footer{background:var(--bk);border-top:1px solid var(--bd);padding:56px 56px 28p
   .marcas-wrap{padding:56px 20px}
   footer{padding:40px 20px 20px}
 }
+
+/* INTERCOM HERO BLOCK */
+.ih{background:var(--bk);border:1px solid var(--bd);border-left:4px solid var(--gold);margin-bottom:2px;position:relative;overflow:hidden}
+.ih::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at top left,rgba(212,175,55,0.07) 0%,transparent 60%);pointer-events:none}
+.ih-inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;padding:56px;align-items:start}
+.ih-eyebrow{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;opacity:.9}
+.ih-title{font-family:var(--fd);font-size:clamp(26px,3vw,42px);line-height:1.08;color:var(--wh);margin-bottom:20px;letter-spacing:.5px}
+.ih-desc{font-size:14px;color:var(--gl);line-height:1.75;margin-bottom:28px}
+.ih-diffs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px}
+.ih-diff{padding:6px 14px;border:1px solid rgba(212,175,55,.3);font-size:11px;letter-spacing:1px;color:var(--gold2);background:rgba(212,175,55,.06)}
+.ih-tech-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px}
+.ih-tech-card{background:var(--bk2);border:1px solid var(--bd);padding:28px;transition:border-color .3s}
+.ih-tech-card:hover{border-color:rgba(212,175,55,.35)}
+.ih-tech-logo{font-family:var(--fd);font-size:22px;color:var(--gold);margin-bottom:2px}
+.ih-tech-type{font-size:10px;letter-spacing:2px;color:var(--gm);text-transform:uppercase;margin-bottom:14px}
+.ih-tech-desc{font-size:12px;color:var(--g);line-height:1.5;margin-bottom:16px}
+.ih-tech-products{display:flex;flex-direction:column;gap:0}
+.ih-tech-products span{font-size:12px;color:var(--gl);padding:7px 0;border-bottom:1px solid var(--bd);display:flex;align-items:center;gap:8px}
+.ih-tech-products span::before{content:'';width:5px;height:5px;background:var(--gold);opacity:.6;flex-shrink:0}
+.ih-tech-products span:last-child{border-bottom:none}
+.ih-apps-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gm);margin-bottom:12px}
+.ih-apps{display:flex;flex-wrap:wrap;gap:7px}
+.ih-apps span{font-size:11px;color:var(--gm);padding:5px 12px;background:var(--bk3);border:1px solid var(--bd);letter-spacing:.3px;transition:color .2s,border-color .2s}
+.ih-apps span:hover{color:var(--gl);border-color:var(--bdl)}
+.ih-cta{margin-top:32px;padding-top:32px;border-top:1px solid var(--bd)}
+.ih-cta-text{font-size:14px;color:var(--gl);margin-bottom:20px;font-family:var(--fi);font-style:italic}
+.pilares-grid-3{grid-template-columns:repeat(3,1fr)!important}
+@media(max-width:900px){.ih-inner{grid-template-columns:1fr;gap:40px;padding:40px 28px}.ih-tech-grid{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
@@ -331,10 +428,8 @@ footer{background:var(--bk);border-top:1px solid var(--bd);padding:56px 56px 28p
 <!-- NAV -->
 <nav id="nav">
   <a href="#" class="nav-logo">
-    <img src="logo-allstage-1.png" class="nav-logo-img" alt="ALL STAGE" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-    <div class="nav-logo-fallback" style="display:none">
+    <div class="nav-logo-fallback">
       <span class="logo-all">ALL STAGE</span>
-      <span class="logo-stage">Soluções em equipamentos para quem faz acontecer</span>
     </div>
     <div class="logo-dot"></div>
   </a>
@@ -355,11 +450,11 @@ footer{background:var(--bk);border-top:1px solid var(--bd);padding:56px 56px 28p
     <div>
       <div class="hero-sup rev">
         <div class="hero-sup-line"></div>
-        <span class="hero-sup-txt">Soluções completas para backstage</span>
+        <span class="hero-sup-txt">Soluções completas para backstage!</span>
       </div>
       <h1 class="hero-h1 rev rev-d1">YOUR<br>NEEDS<br><em>OUR SOLUTIONS</em></h1>
       <p class="hero-slogan rev rev-d2">ALL STAGE · Infraestrutura · TI · Tecnologia · Técnica</p>
-      <p class="hero-sub rev rev-d2">Tudo que você precisa para o seu backstage — do intercom ao painel de LED, do notebook ao gerador. Atendemos o Brasil inteiro.</p>
+      <p class="hero-sub rev rev-d2">Tudo que você precisa para o seu backstage: do intercom ao Starlink, do notebook ao gerador. Atendemos o Brasil inteiro.</p>
       <div class="hero-btns rev rev-d3">
         <a href="#produtos" class="btn-pri">Ver Catálogo</a>
         <a href="https://wa.me/5511961807234" target="_blank" class="btn-sec">💬 Fale Conosco</a>
@@ -410,8 +505,8 @@ footer{background:var(--bk);border-top:1px solid var(--bd);padding:56px 56px 28p
         <div class="sec-eyebrow">Quem Somos</div>
         <div class="sec-title" style="margin-bottom:32px">SOMOS<br>ALL STAGE</div>
         <p class="qs-p">A <strong>ALL STAGE</strong> nasceu da paixão pelo ramo de eventos. Estruturada a quatro mãos por dois profissionais com longa jornada no mercado.</p>
-        <p class="qs-p"><strong>Vivi</strong> comanda os bastidores organizacionais — gestão operacional, processos e controle de qualidade. <strong>Moranga</strong> lidera a frente comercial, prospecção e o direcionamento da marca.</p>
-        <p class="qs-p">Com <strong>10 anos de experiência</strong> no backstage dos maiores eventos do Brasil, atendemos todos os formatos e portes — em <strong>todo o território nacional</strong>.</p>
+        <p class="qs-p"><strong>Vivi</strong> comanda os bastidores organizacionais: gestão operacional, processos e controle de qualidade. <strong>Moranga</strong> lidera a frente comercial, prospecção e o direcionamento da marca.</p>
+        <p class="qs-p">Com <strong>10 anos de experiência</strong> no backstage dos maiores eventos do Brasil, atendemos todos os formatos e portes, em <strong>todo o território nacional</strong>.</p>
         <div class="qs-divider"></div>
         <div class="qs-sign">Moranga &amp; Vivi — Fundadores ALL STAGE</div>
       </div>
@@ -456,13 +551,68 @@ footer{background:var(--bk);border-top:1px solid var(--bd);padding:56px 56px 28p
         <div class="sec-eyebrow">O Que Fazemos</div>
         <div class="sec-title">SOLUÇÕES<br>PARA EVENTOS</div>
       </div>
-      <p class="sec-sub">Quatro pilares que sustentam qualquer evento — do pequeno ao grande porte, da convenção ao festival.</p>
+      <p class="sec-sub">Comunicação, Vídeo, TI e Energia, a infraestrutura completa para qualquer evento, em qualquer porte.</p>
     </div>
-    <div class="pilares-grid">
-      <div class="pilar rev"><div class="pilar-num">01</div><div class="pilar-icon">🎧</div><div class="pilar-title">Intercom</div><div class="pilar-desc">Sistemas wireless Hollyland com intercomunicação full-duplex sem latência para equipes de produção e backstage. Linha robusta: Solidcom SE, Solidcom C1, Solidcom C1 Pro e Solidcom M1.</div><div class="pilar-tag">Hollyland · JBL</div></div>
-      <div class="pilar rev rev-d1"><div class="pilar-num">02</div><div class="pilar-icon">📺</div><div class="pilar-title">Vídeo</div><div class="pilar-desc">TVs Samsung Neo QLED e Crystal UHD. Visualização de alto impacto para palcos, feiras e ativações.</div><div class="pilar-tag">Samsung · TV Box MXQ PRO · Suporte Pedestal</div></div>
-      <div class="pilar rev rev-d2"><div class="pilar-num">03</div><div class="pilar-icon">💻</div><div class="pilar-title">TI &amp; Conectividade</div><div class="pilar-desc">Notebooks Dell, internet via Starlink, apresentadores Logitech e monitores 4K. Infraestrutura completa para produção e transmissão.</div><div class="pilar-tag">Dell · Starlink · Logitech</div></div>
-      <div class="pilar rev rev-d3"><div class="pilar-num">04</div><div class="pilar-icon">⚡</div><div class="pilar-title">Energia &amp; Estrutura</div><div class="pilar-desc">Bluetti LiFePO4 e geradores silenciosos para proteger e estabilizar toda a infraestrutura técnica. Totem carregador coletivo, mesa bistro carregadora e mesa de canto — 2 USB + 2 tomadas · 4 aparelhos simultâneos · ativação de experiência para o público.</div><div class="pilar-tag">Bluetti · Britânia</div></div>
+    <!-- INTERCOM HERO BLOCK -->
+    <div class="ih rev">
+      <div class="ih-inner">
+        <div class="ih-left">
+          <div class="ih-eyebrow">Comunicação de Missão Crítica</div>
+          <h3 class="ih-title">Quando a operação não pode falhar,<br>a comunicação também não.</h3>
+          <p class="ih-desc">Em operações ao vivo, cada segundo importa. Shows, festivais, eventos corporativos e grandes produções dependem de comunicação rápida, clara e confiável para manter toda a equipe sincronizada.<br><br>A ALL STAGE fornece soluções profissionais de intercomunicação para qualquer porte, conectando direção técnica, produção, palco, áudio, iluminação, vídeo, broadcast, segurança e backstage, através das tecnologias mais avançadas disponíveis no mercado.</p>
+          <div class="ih-diffs">
+            <div class="ih-diff">Full-Duplex</div>
+            <div class="ih-diff">Baixíssima Latência</div>
+            <div class="ih-diff">Projetos Personalizados</div>
+            <div class="ih-diff">Suporte Técnico</div>
+            <div class="ih-diff">Pequenas e Grandes Operações</div>
+          </div>
+          <div class="ih-cta">
+            <p class="ih-cta-text">Sua operação merece uma comunicação sem falhas.</p>
+            <a href="#fale-conosco" class="btn-pri" style="display:inline-flex;align-items:center;gap:10px">Falar com Especialista <span style="font-size:18px">→</span></a>
+          </div>
+        </div>
+        <div class="ih-right">
+          <div class="ih-tech-grid">
+            <div class="ih-tech-card">
+              <div class="ih-tech-logo">Hollyland</div>
+              <div class="ih-tech-type">Wireless Intercom</div>
+              <div class="ih-tech-desc">Full-duplex sem fio, baixa latência e máxima mobilidade para equipes de produção.</div>
+              <div class="ih-tech-products">
+                <span>Solidcom SE</span>
+                <span>Solidcom C1</span>
+                <span>Solidcom C1 Pro</span>
+                <span>Solidcom M1</span>
+              </div>
+            </div>
+            <div class="ih-tech-card">
+              <div class="ih-tech-logo">RTS</div>
+              <div class="ih-tech-type">Professional Systems</div>
+              <div class="ih-tech-desc">Para operações de grande porte e alta complexidade com integração multi-departamental.</div>
+              <div class="ih-tech-products">
+                <span>RTS OMS Matrix</span>
+                <span>Sistemas RTS Digitais</span>
+                <span>Multi-departamental</span>
+                <span>Grandes Produções</span>
+              </div>
+            </div>
+          </div>
+          <div class="ih-apps-label">Aplicações</div>
+          <div class="ih-apps">
+            <span>Shows</span><span>Festivais</span><span>Turnês</span><span>Teatro</span>
+            <span>Broadcast</span><span>TV / Streaming</span><span>Corporativo</span>
+            <span>Congressos</span><span>Convenções</span><span>Feiras</span>
+            <span>Eventos Esportivos</span><span>Produções Audiovisuais</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- OUTROS PILARES -->
+    <div class="pilares-grid pilares-grid-3">
+      <div class="pilar rev"><div class="pilar-num">02</div><div class="pilar-icon">📺</div><div class="pilar-title">Vídeo</div><div class="pilar-desc">TVs Samsung Neo QLED e Crystal UHD. Visualização de alto impacto para palcos, feiras e ativações.</div><div class="pilar-tag">Samsung · TV Box MXQ PRO · Suporte Pedestal</div></div>
+      <div class="pilar rev rev-d1"><div class="pilar-num">03</div><div class="pilar-icon">💻</div><div class="pilar-title">TI &amp; Conectividade</div><div class="pilar-desc">Notebooks Dell, internet via Starlink, apresentadores Logitech e monitores 4K. Infraestrutura completa para produção e transmissão.</div><div class="pilar-tag">Dell · Starlink · Logitech</div></div>
+      <div class="pilar rev rev-d2"><div class="pilar-num">04</div><div class="pilar-icon">⚡</div><div class="pilar-title">Energia &amp; Estrutura</div><div class="pilar-desc">Bluetti AC70P e geradores silenciosos para proteger e estabilizar toda a infraestrutura técnica. Totem carregador coletivo, mesa bistro carregadora e mesa de canto: 2 USB + 2 tomadas · 4 aparelhos simultâneos.</div><div class="pilar-tag">Bluetti · Britânia</div></div>
     </div>
   </div>
 </div>
@@ -491,7 +641,7 @@ footer{background:var(--bk);border-top:1px solid var(--bd);padding:56px 56px 28p
       <!-- ÁUDIO -->
       <div class="pc rev" data-cat="audio">
         <span class="pc-hot">★ Mais Alugado</span>
-        <div class="pc-img"><img src="imgs-produtos/solidcom-c1.png" alt="Hollyland Solidcom C1"></div>
+        <div class="pc-img"><img loading="lazy" decoding="async" src="imgs-produtos/solidcom-c1.png" alt="Hollyland Solidcom C1"></div>
         <div class="pc-body">
           <span class="pc-tag">Áudio / Intercom</span>
           <h3 class="pc-name">Hollyland Solidcom C1</h3>
@@ -504,7 +654,7 @@ footer{background:var(--bk);border-top:1px solid var(--bd);padding:56px 56px 28p
 
       <div class="pc rev rev-d1" data-cat="audio">
         <span class="pc-hot">★ Mais Alugado</span>
-        <div class="pc-img"><img src="imgs-produtos/solidcom-c1-pro.png" alt="Hollyland Solidcom C1 Pro"></div>
+        <div class="pc-img"><img loading="lazy" decoding="async" src="imgs-produtos/solidcom-c1-pro.png" alt="Hollyland Solidcom C1 Pro"></div>
         <div class="pc-body">
           <span class="pc-tag">Áudio / Intercom</span>
           <h3 class="pc-name">Hollyland Solidcom C1 PRO</h3>
@@ -516,7 +666,7 @@ footer{background:var(--bk);border-top:1px solid var(--bd);padding:56px 56px 28p
       </div>
 
       <div class="pc rev rev-d2" data-cat="audio">
-        <div class="pc-img"><img src="imgs-produtos/jbl-headphone.png" alt="JBL Everest JB950"></div>
+        <div class="pc-img"><img loading="lazy" decoding="async" src="imgs-produtos/jbl-headphone.png" alt="JBL Everest JB950"></div>
         <div class="pc-body">
           <span class="pc-tag">Áudio / Intercom</span>
           <h3 class="pc-name">Headphone JBL Everest JB950</h3>
@@ -528,7 +678,7 @@ footer{background:var(--bk);border-top:1px solid var(--bd);padding:56px 56px 28p
 
       <!-- ESTRUTURA -->
       <div class="pc rev" data-cat="estrutura">
-        <div class="pc-img"><img src="imgs-produtos/praticavel.png" alt="Praticável para Palco"></div>
+        <div class="pc-img"><img loading="lazy" decoding="async" src="imgs-produtos/praticavel.png" alt="Praticável para Palco"></div>
         <div class="pc-body">
           <span class="pc-tag">Estrutura / Palco</span>
           <h3 class="pc-name">Praticável 2x1m</h3>
@@ -541,7 +691,7 @@ footer{background:var(--bk);border-top:1px solid var(--bd);padding:56px 56px 28p
 
       <div class="pc rev rev-d1" data-cat="estrutura">
         <span class="pc-hot">★ Mais Alugado</span>
-        <div class="pc-img"><img src="imgs-produtos/mesa.png" alt="Mesa Pranchão Preta"></div>
+        <div class="pc-img"><img loading="lazy" decoding="async" src="imgs-produtos/mesa.png" alt="Mesa Pranchão Preta"></div>
         <div class="pc-body">
           <span class="pc-tag">Estrutura / Palco</span>
           <h3 class="pc-name">Mesa Desmontável Pranchão Preta</h3>
@@ -553,7 +703,7 @@ footer{background:var(--bk);border-top:1px solid var(--bd);padding:56px 56px 28p
 
       <div class="pc rev rev-d2" data-cat="estrutura">
         <span class="pc-hot">★ Mais Alugado</span>
-        <div class="pc-img"><img src="imgs-produtos/mesa.png" alt="Mesa Pranchão Branca"></div>
+        <div class="pc-img"><img loading="lazy" decoding="async" src="imgs-produtos/mesa-branca.png" alt="Mesa Pranchão Branca"></div>
         <div class="pc-body">
           <span class="pc-tag">Estrutura / Palco</span>
           <h3 class="pc-name">Mesa Desmontável Pranchão Branca</h3>
@@ -565,7 +715,7 @@ footer{background:var(--bk);border-top:1px solid var(--bd);padding:56px 56px 28p
 
       <!-- VÍDEO -->
       <div class="pc rev" data-cat="video">
-        <div class="pc-img"><img src="imgs-produtos/samsung-tv.jpg" alt="Samsung Smart TV 32″"></div>
+        <div class="pc-img"><img loading="lazy" decoding="async" src="imgs-produtos/samsung-tv.png" alt="Samsung Smart TV 32″"></div>
         <div class="pc-body">
           <span class="pc-tag">Vídeo / Telas</span>
           <h3 class="pc-name">Samsung Smart TV 32″</h3>
@@ -576,7 +726,7 @@ footer{background:var(--bk);border-top:1px solid var(--bd);padding:56px 56px 28p
       </div>
 
       <div class="pc rev rev-d1" data-cat="video">
-        <div class="pc-img"><img src="imgs-produtos/samsung-tv.jpg" alt="Samsung Smart TV 43″"></div>
+        <div class="pc-img"><img loading="lazy" decoding="async" src="imgs-produtos/samsung-tv.png" alt="Samsung Smart TV 43″"></div>
         <div class="pc-body">
           <span class="pc-tag">Vídeo / Telas</span>
           <h3 class="pc-name">Samsung Smart TV 43″</h3>
@@ -588,7 +738,7 @@ footer{background:var(--bk);border-top:1px solid var(--bd);padding:56px 56px 28p
 
       <div class="pc rev rev-d2" data-cat="video">
         <span class="pc-hot">★ Mais Alugado</span>
-        <div class="pc-img"><img src="imgs-produtos/samsung-tv.jpg" alt="Samsung Smart TV 55″"></div>
+        <div class="pc-img"><img loading="lazy" decoding="async" src="imgs-produtos/samsung-tv.png" alt="Samsung Smart TV 55″"></div>
         <div class="pc-body">
           <span class="pc-tag">Vídeo / Telas</span>
           <h3 class="pc-name">Samsung Smart TV 55″</h3>
@@ -599,7 +749,7 @@ footer{background:var(--bk);border-top:1px solid var(--bd);padding:56px 56px 28p
       </div>
 
       <div class="pc rev rev-d3" data-cat="video">
-        <div class="pc-img"><img src="imgs-produtos/samsung-tv.jpg" alt="Samsung Smart TV 65″"></div>
+        <div class="pc-img"><img loading="lazy" decoding="async" src="imgs-produtos/samsung-tv.png" alt="Samsung Smart TV 65″"></div>
         <div class="pc-body">
           <span class="pc-tag">Vídeo / Telas</span>
           <h3 class="pc-name">Samsung Smart TV 65″</h3>
@@ -610,7 +760,7 @@ footer{background:var(--bk);border-top:1px solid var(--bd);padding:56px 56px 28p
       </div>
 
       <div class="pc rev" data-cat="video">
-        <div class="pc-img"><img src="imgs-produtos/samsung-tv.jpg" alt="Samsung Smart TV 75″"></div>
+        <div class="pc-img"><img loading="lazy" decoding="async" src="imgs-produtos/samsung-tv.png" alt="Samsung Smart TV 75″"></div>
         <div class="pc-body">
           <span class="pc-tag">Vídeo / Telas</span>
           <h3 class="pc-name">Samsung Smart TV 75″</h3>
@@ -621,7 +771,7 @@ footer{background:var(--bk);border-top:1px solid var(--bd);padding:56px 56px 28p
       </div>
 
       <div class="pc rev rev-d1" data-cat="video">
-        <div class="pc-img"><img src="imgs-produtos/samsung-tv.jpg" alt="Samsung Smart TV 85″"></div>
+        <div class="pc-img"><img loading="lazy" decoding="async" src="imgs-produtos/samsung-tv.png" alt="Samsung Smart TV 85″"></div>
         <div class="pc-body">
           <span class="pc-tag">Vídeo / Telas</span>
           <h3 class="pc-name">Samsung Smart TV 85″</h3>
@@ -632,7 +782,7 @@ footer{background:var(--bk);border-top:1px solid var(--bd);padding:56px 56px 28p
       </div>
 
       <div class="pc rev rev-d1" data-cat="video">
-        <div class="pc-img"><img src="imgs-produtos/suporte-tv.png" alt="Suporte Pedestal TV"></div>
+        <div class="pc-img"><img loading="lazy" decoding="async" src="imgs-produtos/suporte-tv.png" alt="Suporte Pedestal TV"></div>
         <div class="pc-body">
           <span class="pc-tag">Vídeo / Telas</span>
           <h3 class="pc-name">Suporte Pedestal TV</h3>
@@ -643,7 +793,7 @@ footer{background:var(--bk);border-top:1px solid var(--bd);padding:56px 56px 28p
       </div>
 
       <div class="pc rev rev-d2" data-cat="video">
-        <div class="pc-img"><img src="imgs-produtos/tv-box.png" alt="TV Box MXQ PRO"></div>
+        <div class="pc-img"><img loading="lazy" decoding="async" src="imgs-produtos/tv-box.png" alt="TV Box MXQ PRO"></div>
         <div class="pc-body">
           <span class="pc-tag">Vídeo / Telas</span>
           <h3 class="pc-name">TV Box MXQ PRO</h3>
@@ -655,7 +805,7 @@ footer{background:var(--bk);border-top:1px solid var(--bd);padding:56px 56px 28p
 
       <!-- TI -->
       <div class="pc rev" data-cat="info">
-        <div class="pc-img"><img src="imgs-produtos/notebook-dell.png" alt="Dell G15 5530 RTX 3050"></div>
+        <div class="pc-img"><img loading="lazy" decoding="async" src="imgs-produtos/notebook-dell.png" alt="Dell G15 5530 RTX 3050"></div>
         <div class="pc-body">
           <span class="pc-tag">TI / Informática</span>
           <h3 class="pc-name">Notebook Dell G15 5530 · RTX 3050</h3>
@@ -667,7 +817,7 @@ footer{background:var(--bk);border-top:1px solid var(--bd);padding:56px 56px 28p
 
       <div class="pc rev rev-d1" data-cat="info">
         <span class="pc-hot">Performance</span>
-        <div class="pc-img"><img src="imgs-produtos/notebook-dell.png" alt="Dell G15 5530 RTX 3070"></div>
+        <div class="pc-img"><img loading="lazy" decoding="async" src="imgs-produtos/notebook-dell.png" alt="Dell G15 5530 RTX 3070"></div>
         <div class="pc-body">
           <span class="pc-tag">TI / Informática</span>
           <h3 class="pc-name">Notebook Dell G15 5530 · RTX 3070</h3>
@@ -678,7 +828,7 @@ footer{background:var(--bk);border-top:1px solid var(--bd);padding:56px 56px 28p
       </div>
 
       <div class="pc rev rev-d1" data-cat="info">
-        <div class="pc-img"><img src="imgs-produtos/apresentador.png" alt="Logitech Spotlight"></div>
+        <div class="pc-img"><img loading="lazy" decoding="async" src="imgs-produtos/apresentador.png" alt="Logitech Spotlight"></div>
         <div class="pc-body">
           <span class="pc-tag">TI / Informática</span>
           <h3 class="pc-name">Logitech Spotlight</h3>
@@ -690,7 +840,7 @@ footer{background:var(--bk);border-top:1px solid var(--bd);padding:56px 56px 28p
 
       <div class="pc rev rev-d2" data-cat="info">
         <span class="pc-hot">★ Mais Alugado</span>
-        <div class="pc-img"><img src="imgs-produtos/starlink.png" alt="Starlink"></div>
+        <div class="pc-img"><img loading="lazy" decoding="async" src="imgs-produtos/starlink.png" alt="Starlink"></div>
         <div class="pc-body">
           <span class="pc-tag">TI / Informática</span>
           <h3 class="pc-name">Starlink</h3>
@@ -701,7 +851,7 @@ footer{background:var(--bk);border-top:1px solid var(--bd);padding:56px 56px 28p
       </div>
 
       <div class="pc rev rev-d3" data-cat="info">
-        <div class="pc-img"><img src="imgs-produtos/totem.png" alt="Totem Carregador"></div>
+        <div class="pc-img"><img loading="lazy" decoding="async" src="imgs-produtos/totem.png" alt="Totem Carregador"></div>
         <div class="pc-body">
           <span class="pc-tag">TI / Informática</span>
           <h3 class="pc-name">Totem Carregador Coletivo</h3>
@@ -714,7 +864,7 @@ footer{background:var(--bk);border-top:1px solid var(--bd);padding:56px 56px 28p
       <!-- ELÉTRICA -->
       <div class="pc rev" data-cat="eletrica">
         <span class="pc-hot">★ Mais Alugado</span>
-        <div class="pc-img"><img src="imgs-produtos/bluetti.png" alt="Bluetti AC50P"></div>
+        <div class="pc-img"><img loading="lazy" decoding="async" src="imgs-produtos/bluetti.png" alt="Bluetti AC50P"></div>
         <div class="pc-body">
           <span class="pc-tag">Elétrica / Energia</span>
           <h3 class="pc-name">Bluetti AC50P Estação Portátil</h3>
@@ -725,7 +875,7 @@ footer{background:var(--bk);border-top:1px solid var(--bd);padding:56px 56px 28p
       </div>
 
       <div class="pc rev rev-d1" data-cat="eletrica">
-        <div class="pc-img"><img src="imgs-produtos/regua-filtro.png" alt="Régua Filtro de Linha"></div>
+        <div class="pc-img"><img loading="lazy" decoding="async" src="imgs-produtos/regua-filtro.png" alt="Régua Filtro de Linha"></div>
         <div class="pc-body">
           <span class="pc-tag">Elétrica / Energia</span>
           <h3 class="pc-name">Régua Filtro de Linha</h3>
@@ -737,7 +887,7 @@ footer{background:var(--bk);border-top:1px solid var(--bd);padding:56px 56px 28p
 
       <!-- ACESSÓRIOS -->
       <div class="pc rev" data-cat="acess">
-        <div class="pc-img"><img src="imgs-produtos/cabos-hdmi.png" alt="Cabos HDMI"></div>
+        <div class="pc-img"><img loading="lazy" decoding="async" src="imgs-produtos/cabos-hdmi.png" alt="Cabos HDMI"></div>
         <div class="pc-body">
           <span class="pc-tag">Acessórios</span>
           <h3 class="pc-name">Cabos HDMI</h3>
@@ -750,7 +900,7 @@ footer{background:var(--bk);border-top:1px solid var(--bd);padding:56px 56px 28p
 
       <div class="pc rev rev-d1" data-cat="acess">
         <span class="pc-hot">★ Mais Alugado</span>
-        <div class="pc-img"><img src="imgs-produtos/passa-cabo.png" alt="Passa Cabo 2 Vias"></div>
+        <div class="pc-img"><img loading="lazy" decoding="async" src="imgs-produtos/passa-cabo.png" alt="Passa Cabo 2 Vias"></div>
         <div class="pc-body">
           <span class="pc-tag">Acessórios</span>
           <h3 class="pc-name">Passa Cabo 2 Vias</h3>
@@ -762,7 +912,7 @@ footer{background:var(--bk);border-top:1px solid var(--bd);padding:56px 56px 28p
 
       <div class="pc rev rev-d2" data-cat="acess">
         <span class="pc-hot">★ Mais Alugado</span>
-        <div class="pc-img"><img src="imgs-produtos/passa-cabo-5v.png" alt="Passa Cabo 5 Vias"></div>
+        <div class="pc-img"><img loading="lazy" decoding="async" src="imgs-produtos/passa-cabo-5v.png" alt="Passa Cabo 5 Vias"></div>
         <div class="pc-body">
           <span class="pc-tag">Acessórios</span>
           <h3 class="pc-name">Passa Cabo 5 Vias</h3>
@@ -773,7 +923,7 @@ footer{background:var(--bk);border-top:1px solid var(--bd);padding:56px 56px 28p
       </div>
 
       <div class="pc rev rev-d2" data-cat="acess">
-        <div class="pc-img"><img src="imgs-produtos/organizador-filas.png" alt="Organizador de Filas"></div>
+        <div class="pc-img"><img loading="lazy" decoding="async" src="imgs-produtos/organizador-filas.png" alt="Organizador de Filas"></div>
         <div class="pc-body">
           <span class="pc-tag">Acessórios</span>
           <h3 class="pc-name">Organizador de Filas Unifila</h3>
@@ -784,7 +934,7 @@ footer{background:var(--bk);border-top:1px solid var(--bd);padding:56px 56px 28p
       </div>
 
       <div class="pc rev rev-d3" data-cat="acess">
-        <div class="pc-img"><img src="imgs-produtos/ventilador.png" alt="Ventilador Turbo"></div>
+        <div class="pc-img"><img loading="lazy" decoding="async" src="imgs-produtos/ventilador.png" alt="Ventilador Turbo"></div>
         <div class="pc-body">
           <span class="pc-tag">Acessórios</span>
           <h3 class="pc-name">Ventilador Turbo Britania BCA40A</h3>
@@ -806,7 +956,7 @@ footer{background:var(--bk);border-top:1px solid var(--bd);padding:56px 56px 28p
         <div class="sec-eyebrow">Portfólio 2025 · 2026</div>
         <div class="sec-title">EVENTOS<br>REALIZADOS</div>
       </div>
-      <p class="sec-sub">Presente nos maiores eventos do Brasil — do show à convenção corporativa, do festival ao torneio esportivo.</p>
+      <p class="sec-sub">Presente nos maiores eventos do Brasil, do show à convenção corporativa, do festival ao torneio esportivo.</p>
     </div>
     <div style="margin-top:56px">
       <div class="ev-row rev"><span class="ev-num">01</span><div><div class="ev-cat">Corporativo · Turismo</div><div class="ev-name">CONVENÇÃO CVC 2026</div></div><span class="ev-badge">2026</span></div>
@@ -826,11 +976,11 @@ footer{background:var(--bk);border-top:1px solid var(--bd);padding:56px 56px 28p
     <div class="sec-title">VEJA A ALL STAGE<br>EM AÇÃO</div>
   </div>
   <div class="galeria-grid">
-    <div class="gal-item"><img src="imgs-eventos/evento-01.jpg" alt="Evento ALL STAGE"><div class="gal-overlay"></div></div>
-    <div class="gal-item"><img src="imgs-eventos/evento-02.jpg" alt="Evento ALL STAGE"><div class="gal-overlay"></div></div>
-    <div class="gal-item"><img src="imgs-eventos/evento-03.jpg" alt="Evento ALL STAGE"><div class="gal-overlay"></div></div>
-    <div class="gal-item"><img src="imgs-eventos/evento-04.jpg" alt="Evento ALL STAGE"><div class="gal-overlay"></div></div>
-    <div class="gal-item"><img src="imgs-eventos/evento-05.jpg" alt="Evento ALL STAGE"><div class="gal-overlay"></div></div>
+    <div class="gal-item"><img loading="lazy" decoding="async" src="imgs-eventos/evento-01.jpg" alt="Evento ALL STAGE"><div class="gal-overlay"></div></div>
+    <div class="gal-item"><img loading="lazy" decoding="async" src="imgs-eventos/evento-02.jpg" alt="Evento ALL STAGE"><div class="gal-overlay"></div></div>
+    <div class="gal-item"><img loading="lazy" decoding="async" src="imgs-eventos/evento-03.jpg" alt="Evento ALL STAGE"><div class="gal-overlay"></div></div>
+    <div class="gal-item"><img loading="lazy" decoding="async" src="imgs-eventos/evento-04.jpg" alt="Evento ALL STAGE"><div class="gal-overlay"></div></div>
+    <div class="gal-item"><img loading="lazy" decoding="async" src="imgs-eventos/evento-05.jpg" alt="Evento ALL STAGE"><div class="gal-overlay"></div></div>
   </div>
   <div class="galeria-cta">
     
@@ -846,37 +996,13 @@ footer{background:var(--bk);border-top:1px solid var(--bd);padding:56px 56px 28p
       <div class="sec-title">TECNOLOGIA DAS<br>MELHORES MARCAS</div>
     </div>
     <div class="marcas-grid">
-      <div class="marca-card rev"><img src="imgs-marcas/hollyland-logo.png" class="marca-logo" alt="Hollyland"></div>
-      <div class="marca-card rev rev-d1"><img src="imgs-marcas/samsung-logo.png" class="marca-logo" alt="Samsung"></div>
-      <div class="marca-card rev rev-d2"><img src="imgs-marcas/bluetti-logo.png" class="marca-logo" alt="Bluetti"></div>
-      <div class="marca-card rev rev-d3"><img src="imgs-marcas/starlink-logo.png" class="marca-logo" alt="Starlink"></div>
-      <div class="marca-card rev"><img src="imgs-marcas/dell-logo.png" class="marca-logo" alt="Dell"></div>
-      <div class="marca-card rev rev-d1"><img src="imgs-marcas/jbl-logo.png" class="marca-logo" alt="JBL"></div>
-      <div class="marca-card rev rev-d2"><img src="imgs-marcas/logitech-logo.png" class="marca-logo" alt="Logitech"></div>
-    </div>
-  </div>
-</div>
-
-<!-- NOSSA HISTÓRIA -->
-<div class="historia-wrap">
-  <div class="historia-inner">
-    <div class="rev">
-      <div class="sec-eyebrow">Nossa História</div>
-      <div class="sec-title" style="margin-bottom:32px">10 ANOS<br>DE BACKSTAGE</div>
-      <p class="qs-p">A <strong>ALL STAGE</strong> nasceu da paixão pelo ramo de eventos. Estruturada a quatro mãos por dois profissionais com longa jornada no mercado.</p>
-      <p class="qs-p">Com <strong>10 anos de experiência</strong> no backstage dos maiores eventos do Brasil, atendemos todos os formatos e portes — do corporativo ao festival, em <strong>todo o território nacional</strong>.</p>
-      <p class="qs-p">Mais do que locar equipamentos, entregamos a <strong>tranquilidade técnica</strong> que cada evento precisa para acontecer sem imprevistos.</p>
-      <div class="qs-divider"></div>
-      <div class="qs-sign">Moranga &amp; Vivi — Fundadores ALL STAGE</div>
-    </div>
-    <div class="rev rev-d2">
-      <div class="hv-item"><div class="hv-role">Gestão Operacional</div><div class="hv-name">VIVI</div><div class="hv-desc">Bastidores organizacionais, processos integrados e controle rigoroso da qualidade das entregas.</div></div>
-      <div class="hv-item"><div class="hv-role">Frente Comercial</div><div class="hv-name">MORANGA</div><div class="hv-desc">Prospecção de novos negócios, atendimento e direcionamento geral da marca.</div></div>
-      <div style="background:var(--bk2);border:1px solid rgba(212,175,55,.15);padding:28px 24px;margin-top:2px">
-        <div style="font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);opacity:.6;margin-bottom:12px">Presença Nacional</div>
-        <div style="font-family:var(--fd);font-size:56px;line-height:1;color:var(--gold);opacity:.2;margin-bottom:8px">100%</div>
-        <div style="font-size:13px;color:var(--gl);font-weight:300;line-height:1.6">Atendemos o Brasil inteiro — onde seu evento for, a ALL STAGE está.</div>
-      </div>
+      <div class="marca-card rev"><img loading="lazy" decoding="async" src="imgs-marcas/hollyland-logo.png" class="marca-logo" alt="Hollyland"></div>
+      <div class="marca-card rev rev-d1"><img loading="lazy" decoding="async" src="imgs-marcas/samsung-logo.png" class="marca-logo" alt="Samsung"></div>
+      <div class="marca-card rev rev-d2"><img loading="lazy" decoding="async" src="imgs-marcas/bluetti-logo.png" class="marca-logo" alt="Bluetti"></div>
+      <div class="marca-card rev rev-d3"><img loading="lazy" decoding="async" src="imgs-marcas/starlink-logo.png" class="marca-logo" alt="Starlink"></div>
+      <div class="marca-card rev"><img loading="lazy" decoding="async" src="imgs-marcas/dell-logo.png" class="marca-logo" alt="Dell"></div>
+      <div class="marca-card rev rev-d1"><img loading="lazy" decoding="async" src="imgs-marcas/jbl-logo.png" class="marca-logo" alt="JBL"></div>
+      <div class="marca-card rev rev-d2"><img loading="lazy" decoding="async" src="imgs-marcas/logitech-logo.png" class="marca-logo" alt="Logitech"></div>
     </div>
   </div>
 </div>
@@ -889,18 +1015,18 @@ footer{background:var(--bk);border-top:1px solid var(--bd);padding:56px 56px 28p
       <div class="sec-title">QUEM CONFIA<br>NA ALL STAGE</div>
     </div>
     <div class="clientes-grid">
-      <a href="https://www.casadavilahub.com/" target="_blank" class="cliente-card rev"><img src="imgs-agencias/casa-da-vila.png" class="cliente-logo" alt="Casa da Vila"></a>
-      <a href="https://aatb.com.br/" target="_blank" class="cliente-card rev rev-d1"><img src="imgs-agencias/innova.png" class="cliente-logo" alt="Innova"></a>
-      <a href="https://eaimkt.com.br/" target="_blank" class="cliente-card rev rev-d2"><img src="imgs-agencias/eai.png" class="cliente-logo" alt="EaÍ!? Content"></a>
-      <a href="https://bferraz.ag/" target="_blank" class="cliente-card rev rev-d3"><img src="imgs-agencias/bferraz.png" class="cliente-logo" alt="Bferraz"></a>
-      <a href="https://oito.ag/" target="_blank" class="cliente-card rev"><img src="imgs-agencias/oito.png" class="cliente-logo" alt="Oito"></a>
-      <a href="#" class="cliente-card rev rev-d1"><img src="imgs-agencias/complo.png" class="cliente-logo" alt="Complo"></a>
-      <a href="https://www.merakinaoagencia.com.br/" target="_blank" class="cliente-card rev rev-d2"><img src="imgs-agencias/meraki.png" class="cliente-logo" alt="Meraki"></a>
-      <a href="https://reddoor.ag/" target="_blank" class="cliente-card rev rev-d3"><img src="imgs-agencias/red-door.png" class="cliente-logo" alt="REDDOR"></a>
-      <a href="https://nico.ag/" target="_blank" class="cliente-card rev"><img src="imgs-agencias/nico.png" class="cliente-logo" alt="Nico"></a>
-      <a href="https://agenciaterrua.com.br/" target="_blank" class="cliente-card rev rev-d1"><img src="imgs-agencias/terrua.png" class="cliente-logo" alt="Terrua"></a>
-      <a href="https://liveaction.com.br/" target="_blank" class="cliente-card rev rev-d2"><img src="imgs-agencias/live-action.png" class="cliente-logo" alt="Live Action"></a>
-      <a href="https://www.becomunica.com.br/" target="_blank" class="cliente-card rev rev-d3"><img src="imgs-agencias/be-comunica.png" class="cliente-logo" alt="Be Comunica"></a>
+      <a href="https://www.casadavilahub.com/" target="_blank" class="cliente-card rev"><img loading="lazy" decoding="async" src="imgs-agencias/casa-da-vila.png" class="cliente-logo" alt="Casa da Vila"></a>
+      <a href="https://aatb.com.br/" target="_blank" class="cliente-card rev rev-d1"><img loading="lazy" decoding="async" src="imgs-agencias/innova.png" class="cliente-logo" alt="Innova"></a>
+      <a href="https://eaimkt.com.br/" target="_blank" class="cliente-card rev rev-d2"><img loading="lazy" decoding="async" src="imgs-agencias/eai.png" class="cliente-logo" alt="EaÍ!? Content"></a>
+      <a href="https://bferraz.ag/" target="_blank" class="cliente-card rev rev-d3"><img loading="lazy" decoding="async" src="imgs-agencias/bferraz.png" class="cliente-logo" alt="Bferraz"></a>
+      <a href="https://oito.ag/" target="_blank" class="cliente-card rev"><img loading="lazy" decoding="async" src="imgs-agencias/oito.png" class="cliente-logo" alt="Oito"></a>
+      <a href="#" class="cliente-card rev rev-d1"><img loading="lazy" decoding="async" src="imgs-agencias/complo.png" class="cliente-logo" alt="Complo"></a>
+      <a href="https://www.merakinaoagencia.com.br/" target="_blank" class="cliente-card rev rev-d2"><img loading="lazy" decoding="async" src="imgs-agencias/meraki.png" class="cliente-logo" alt="Meraki"></a>
+      <a href="https://reddoor.ag/" target="_blank" class="cliente-card rev rev-d3"><img loading="lazy" decoding="async" src="imgs-agencias/red-door.png" class="cliente-logo" alt="REDDOR"></a>
+      <a href="https://nico.ag/" target="_blank" class="cliente-card rev"><img loading="lazy" decoding="async" src="imgs-agencias/nico.png" class="cliente-logo" alt="Nico"></a>
+      <a href="https://agenciaterrua.com.br/" target="_blank" class="cliente-card rev rev-d1"><img loading="lazy" decoding="async" src="imgs-agencias/terrua.png" class="cliente-logo" alt="Terrua"></a>
+      <a href="https://liveaction.com.br/" target="_blank" class="cliente-card rev rev-d2"><img loading="lazy" decoding="async" src="imgs-agencias/live-action.png" class="cliente-logo" alt="Live Action"></a>
+      <a href="https://www.becomunica.com.br/" target="_blank" class="cliente-card rev rev-d3"><img loading="lazy" decoding="async" src="imgs-agencias/be-comunica.png" class="cliente-logo" alt="Be Comunica"></a>
     </div>
   </div>
 </div>
@@ -978,7 +1104,7 @@ footer{background:var(--bk);border-top:1px solid var(--bd);padding:56px 56px 28p
   <div class="ft-inner">
     <div class="ft-top">
       <div>
-        <img src="logo-allstage-1.png" class="ft-logo-img" alt="ALL STAGE" onerror="this.style.display='none'">
+        <img loading="lazy" decoding="async" src="logo-allstage-1.png" class="ft-logo-img" alt="ALL STAGE" onerror="this.style.display='none'">
         <p class="ft-brand-desc">Tudo que você precisa para o seu backstage. Infraestrutura, TI, Tecnologia e Técnica. Atendemos o Brasil inteiro.</p>
         <div class="ft-social">
           <a href="https://instagram.com" class="ft-soc" title="Instagram" target="_blank">📸</a>
@@ -1035,10 +1161,24 @@ const nav=document.getElementById('nav');
 window.addEventListener('scroll',()=>nav.classList.toggle('sc',window.scrollY>60),{passive:true});
 
 // REVEAL
-const revObs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.1});
-document.querySelectorAll('.rev').forEach(el=>revObs.observe(el));
+const temObserver='IntersectionObserver' in window;
+if(temObserver){
+  const revObs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.1});
+  document.querySelectorAll('.rev').forEach(el=>revObs.observe(el));
+}else{
+  // navegador antigo: mostra tudo de uma vez, sem animacao
+  document.querySelectorAll('.rev').forEach(el=>el.classList.add('in'));
+}
+// rede de seguranca: se por qualquer motivo o observer nao disparar, nada
+// pode ficar invisivel para sempre. Depois de 3s revela o que ja' esta' na tela.
+setTimeout(function(){
+  document.querySelectorAll('.rev:not(.in)').forEach(function(el){
+    if(el.getBoundingClientRect().top < window.innerHeight) el.classList.add('in');
+  });
+},3000);
 
 // COUNTER
+if(temObserver){
 const cntObs=new IntersectionObserver(entries=>entries.forEach(e=>{
   if(e.isIntersecting&&!e.target.dataset.done){
     e.target.dataset.done=1;
@@ -1047,6 +1187,12 @@ const cntObs=new IntersectionObserver(entries=>entries.forEach(e=>{
   }
 }),{threshold:.5});
 document.querySelectorAll('[data-count]').forEach(el=>cntObs.observe(el));
+}else{
+  // sem observer os numeros aparecem direto no valor final, sem contagem
+  document.querySelectorAll('[data-count]').forEach(function(el){
+    const n=+el.dataset.count; el.textContent=n+(n>=100?'+':'');
+  });
+}
 
 
 // FILTER
