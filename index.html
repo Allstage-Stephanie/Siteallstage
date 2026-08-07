@@ -95,6 +95,13 @@ nav.sc{background:rgba(8,8,8,0.97);backdrop-filter:blur(24px);padding:12px 56px;
 .btn-nav{background:var(--gold)!important;color:var(--bk)!important;padding:9px 20px;font-weight:500!important;letter-spacing:1.5px!important}
 .btn-nav::after{display:none!important}
 .btn-nav:hover{background:var(--gold2)!important;color:var(--bk)!important}
+.nav-burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:36px;height:36px;background:none;border:none;padding:0;cursor:none;flex-shrink:0}
+.nav-burger span{display:block;width:22px;height:2px;background:var(--wh);transition:transform .3s var(--ease),opacity .2s}
+.nav-burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-burger.open span:nth-child(2){opacity:0}
+.nav-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:940}
+.nav-overlay.show{display:block}
 
 /* HERO */
 #hero{position:relative;min-height:100vh;display:flex;align-items:center;padding-top:88px;overflow:hidden}
@@ -371,7 +378,11 @@ footer{background:var(--bk);border-top:1px solid var(--bd);padding:56px 56px 28p
   nav{padding:12px 20px}
   nav.sc{padding:10px 20px}
   .nav-search{display:none}
+  .nav-burger{display:flex}
   .nav-links li:not(:last-child){display:none}
+  .nav-links.open{position:fixed;top:0;right:0;height:100vh;width:78%;max-width:300px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:28px;background:rgba(8,8,8,0.98);backdrop-filter:blur(24px);border-left:1px solid var(--bd);padding:32px;z-index:950}
+  .nav-links.open li{display:block!important}
+  .nav-links.open a{font-size:13px}
   .hero-inner{padding:0 20px}
   .hero-right{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px}
   .hero-stat{padding:16px 10px;min-width:0}
@@ -437,13 +448,17 @@ footer{background:var(--bk);border-top:1px solid var(--bd);padding:56px 56px 28p
     </div>
     <div class="logo-dot"></div>
   </a>
-  <ul class="nav-links">
+  <ul class="nav-links" id="navLinks">
     <li><a href="#quem-somos">Quem Somos</a></li>
     <li><a href="#produtos">Produtos</a></li>
     <li><a href="#eventos">Eventos</a></li>
     <li><a href="#contato" class="btn-nav">Orçamento</a></li>
   </ul>
+  <button class="nav-burger" id="navBurger" aria-label="Abrir menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<div class="nav-overlay" id="navOverlay"></div>
 
 <!-- HERO -->
 <section id="hero">
@@ -1163,6 +1178,19 @@ document.querySelectorAll('a,button,[onclick]').forEach(el=>{
 // NAV
 const nav=document.getElementById('nav');
 window.addEventListener('scroll',()=>nav.classList.toggle('sc',window.scrollY>60),{passive:true});
+
+// NAV MOBILE MENU
+const navBurger=document.getElementById('navBurger'),navLinks=document.getElementById('navLinks'),navOverlay=document.getElementById('navOverlay');
+function setMenu(open){
+  navBurger.classList.toggle('open',open);
+  navLinks.classList.toggle('open',open);
+  navOverlay.classList.toggle('show',open);
+  navBurger.setAttribute('aria-expanded',open);
+  document.body.style.overflow=open?'hidden':'';
+}
+navBurger.addEventListener('click',()=>setMenu(!navLinks.classList.contains('open')));
+navOverlay.addEventListener('click',()=>setMenu(false));
+navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
 
 // REVEAL
 const temObserver='IntersectionObserver' in window;
